@@ -8,26 +8,28 @@ import java.util.Queue;
 import java.util.Scanner;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import com.util.Event;
+import com.objects.Event;
+import com.objects.Job;
+import com.util.EventHandler;
 import com.util.EventType;
-import com.util.Job;
 
 public class Scheduler {
 	
 	public static void main(String[] args) {
-		
 		final int MAX_MEMORY = 512;
 		int usedMemory = 0;
 		long systemTime = 0;
+		
+		EventHandler handler = new EventHandler();
 		
 		Queue<Job> readyQ1 = new ConcurrentLinkedQueue<Job>();
 		Queue<Job> readyQ2 = new ConcurrentLinkedQueue<Job>();
 		Queue<Job> jobSchedulingQ = new ConcurrentLinkedQueue<Job>();
 		List<Job> finishedJobs = new ArrayList<Job>();
 		
-		//queue of events from command line
+		 //queue of events from command line
 		Queue<Event> eventQ = new ConcurrentLinkedQueue<Event>();
-	
+		
 		Scanner sc = new Scanner(System.in);
 		String lineIn;
 		String[] argsIn;
@@ -53,30 +55,20 @@ public class Scheduler {
 			eventQ.add(e);
 		}
 		
-		
-		System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks available in the system.\n");
-
 		Event event = eventQ.poll();
 		
 		while(true) {
 			// handle (external) events
-			if(systemTime == event.getTime()) {
+			if(event != null && systemTime == event.getTime()) {
 				System.out.println("Job: " + event.getType().toString() + "\tTime: " + event.getTime());
 				// Event A
 				if (event.getType().equals(EventType.A)) {
-					Job j = event.getJob();
-					if(j.getMemory() > (MAX_MEMORY)) {
-						System.out.println("This job exceeds the system's main memory capacity.");
-					} else {
-						jobSchedulingQ.add(j);
-					}
+					handler.handleEventA(event, MAX_MEMORY, jobSchedulingQ);
 						
 				// Event D
 				} else if (event.getType().equals(EventType.D)) {
-					
-					System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks available in the system.\n");
+					handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, finishedJobs);
 				}
-				
 				
 				
 				//get next event
@@ -84,7 +76,12 @@ public class Scheduler {
 			}
 			
 			//handle queues
-			
+			if(jobSchedulingQ.size() > 0) {
+				if(jobSchedulingQ.peek().getMemory() <= (MAX_MEMORY - usedMemory)) {
+					usedMemory += jobSchedulingQ.peek().getMemory();
+					readyQ1.add(jobSchedulingQ.poll());
+				}
+			}
 			
 			
 			systemTime++;
