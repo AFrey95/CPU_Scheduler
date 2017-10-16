@@ -3,8 +3,8 @@ package com.util;
 import java.util.List;
 import java.util.Queue;
 
-import com.objects.Event;
-import com.objects.Job;
+import com.model.Event;
+import com.model.Job;
 
 public class EventHandler {
 	public void handleEventA(Event event, int MAX_MEMORY, Queue<Job> jobSchedulingQ) {
@@ -16,7 +16,7 @@ public class EventHandler {
 		}
 	}
 	
-	public void handleEventD(long systemTime, int MAX_MEMORY, int usedMemory, Queue<Job> jobSchedulingQ, Queue<Job> readyQ1, Queue<Job> readyQ2, List<Job> finishedJobs) {
+	public void handleEventD(int systemTime, int MAX_MEMORY, int usedMemory, Queue<Job> jobSchedulingQ, Queue<Job> readyQ1, Queue<Job> readyQ2, List<Job> finishedJobs) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("The status of the simulator at time " + systemTime + ".\n\n");
 		
@@ -86,5 +86,9 @@ public class EventHandler {
 		
 		sb.append("There are " + (MAX_MEMORY - usedMemory) + " blocks available in the system.\n");
 		System.out.println(sb.toString());
+	}
+	
+	public void handleEventT(Event event, List<Job> finishedJobs) {
+		finishedJobs.add(event.getJob());
 	}
 }

@@ -1,4 +1,4 @@
-package com.objects;
+package com.model;
 
 public class Job {
 	int id;
@@ -58,5 +58,9 @@ public class Job {
 
 	public void setComTime(int comTime) {
 		this.comTime = comTime;
+	}
+	
+	public void tick() {
+		this.runtime--;
 	}
 }
