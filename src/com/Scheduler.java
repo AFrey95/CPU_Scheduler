@@ -60,7 +60,8 @@ public class Scheduler {
 		
 		Event event = externalQ.poll();
 		
-		while(true) {
+		while(externalQ.size() > 0 || internalQ.size() > 0 || readyQ1.size() > 0
+				|| readyQ2.size() > 0 || jobSchedulingQ.size() > 0 || onCPU != null) {
 			//handle internals
 			if(internalQ.size() > 0) {
 				event = internalQ.poll();
@@ -135,12 +136,12 @@ public class Scheduler {
 					}
 				}
 				
-				
-				
 				systemTime++;
 			}
+			
+			
 		}
-		
+		handler.handleEventEndSim(systemTime, finishedJobs);	
 	}
 
 }

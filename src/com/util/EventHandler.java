@@ -89,6 +89,37 @@ public class EventHandler {
 	}
 	
 	public void handleEventT(Event event, List<Job> finishedJobs) {
+		event.getJob().setComTime(event.getTime());
 		finishedJobs.add(event.getJob());
+	}
+
+	public void handleEventE(Event event, Queue<Job> readyQ2) {
+		readyQ2.add(event.getJob());
+	}
+
+	public void handleEventEndSim(int systemTime, List<Job> finishedJobs) {
+		double average_TA = 0;
+		double average_wait = 0;
+		StringBuilder sb = new StringBuilder();
+		
+		sb.append("The contents of the FINAL FINISHED LIST\n")
+		  .append("---------------------------------------\n\n");
+		
+		if(finishedJobs.size() > 0) {
+			sb.append("Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time\n")
+			  .append("-----  ---------  ---------  --------  ----------  ---------");
+		}
+		
+		for(Job job : finishedJobs) {
+			sb.append(job.getId() + "\t" + job.getArrivalTime() + "\t"
+					+ job.getMemory() + "\t" + job.getRuntime() + "\t"
+					+ job.getStartTime() + "\t" + job.getArrivalTime() + "\n\n");
+			average_TA += (job.getComTime() - job.getArrivalTime());
+//			average_wait += (job.getStartTime())
+		}
+		average_TA = average_TA/finishedJobs.size();
+		
+		sb.append("\nThe Average Turnaround Time for the simulation was " + average_TA + " units.\n\n");
+//		sb.append()
 	}
 }
