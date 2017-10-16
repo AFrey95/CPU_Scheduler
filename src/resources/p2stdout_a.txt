@@ -1,35 +1,35 @@
-Event: A   Time: 100
-Event: A   Time: 120
-Event: A   Time: 122
-Event: A   Time: 130
-Event: A   Time: 131
+Job: A   Time: 100
+Job: A   Time: 120
+Job: A   Time: 122
+Job: A   Time: 130
+Job: A   Time: 131
 This job exceeds the system's main memory capacity.
-Event: A   Time: 136
-Event: A   Time: 145
-Event: A   Time: 150
-Event: A   Time: 157
+Job: A   Time: 136
+Job: A   Time: 145
+Job: A   Time: 150
+Job: A   Time: 157
 This job exceeds the system's main memory capacity.
-Event: A   Time: 161
-Event: A   Time: 170
-Event: T   Time: 178
-Event: A   Time: 181
-Event: A   Time: 188
-Event: A   Time: 190
-Event: A   Time: 195
-Event: A   Time: 201
-Event: A   Time: 260
-Event: A   Time: 267
+Job: A   Time: 161
+Job: A   Time: 170
+Job: T   Time: 178
+Job: A   Time: 181
+Job: A   Time: 188
+Job: A   Time: 190
+Job: A   Time: 195
+Job: A   Time: 201
+Job: A   Time: 260
+Job: A   Time: 267
 This job exceeds the system's main memory capacity.
-Event: T   Time: 268
-Event: T   Time: 269
-Event: A   Time: 271
-Event: A   Time: 278
-Event: A   Time: 300
-Event: A   Time: 306
-Event: A   Time: 309
-Event: A   Time: 313
-Event: A   Time: 351
-Event: D   Time: 361
+Job: T   Time: 268
+Job: T   Time: 269
+Job: A   Time: 271
+Job: A   Time: 278
+Job: A   Time: 300
+Job: A   Time: 306
+Job: A   Time: 309
+Job: A   Time: 313
+Job: A   Time: 351
+Job: D   Time: 361
 
 ************************************************************
 
@@ -98,36 +98,36 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 412 blocks of main memory available in the system.
 
-Event: T   Time: 369
-Event: A   Time: 401
-Event: A   Time: 404
-Event: A   Time: 410
-Event: A   Time: 417
-Event: A   Time: 423
-Event: A   Time: 450
-Event: A   Time: 467
-Event: T   Time: 468
-Event: T   Time: 470
-Event: A   Time: 470
-Event: A   Time: 474
-Event: A   Time: 480
-Event: A   Time: 499
-Event: A   Time: 508
-Event: A   Time: 511
-Event: A   Time: 516
-Event: A   Time: 519
-Event: A   Time: 524
-Event: A   Time: 537
-Event: A   Time: 545
-Event: A   Time: 566
-Event: T   Time: 568
-Event: A   Time: 574
-Event: A   Time: 580
-Event: A   Time: 583
+Job: T   Time: 369
+Job: A   Time: 401
+Job: A   Time: 404
+Job: A   Time: 410
+Job: A   Time: 417
+Job: A   Time: 423
+Job: A   Time: 450
+Job: A   Time: 467
+Job: T   Time: 468
+Job: T   Time: 470
+Job: A   Time: 470
+Job: A   Time: 474
+Job: A   Time: 480
+Job: A   Time: 499
+Job: A   Time: 508
+Job: A   Time: 511
+Job: A   Time: 516
+Job: A   Time: 519
+Job: A   Time: 524
+Job: A   Time: 537
+Job: A   Time: 545
+Job: A   Time: 566
+Job: T   Time: 568
+Job: A   Time: 574
+Job: A   Time: 580
+Job: A   Time: 583
 This job exceeds the system's main memory capacity.
-Event: A   Time: 586
-Event: A   Time: 590
-Event: D   Time: 592
+Job: A   Time: 586
+Job: A   Time: 590
+Job: D   Time: 592
 
 ************************************************************
 
@@ -219,53 +219,53 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 13 blocks of main memory available in the system.
 
-Event: A   Time: 602
-Event: T   Time: 608
-Event: A   Time: 611
-Event: A   Time: 616
-Event: A   Time: 621
-Event: A   Time: 627
-Event: A   Time: 632
-Event: A   Time: 635
-Event: A   Time: 641
-Event: A   Time: 649
-Event: A   Time: 653
-Event: A   Time: 660
-Event: A   Time: 664
-Event: A   Time: 670
-Event: A   Time: 674
-Event: A   Time: 678
-Event: A   Time: 681
-Event: T   Time: 687
-Event: A   Time: 690
-Event: A   Time: 694
-Event: A   Time: 711
+Job: A   Time: 602
+Job: T   Time: 608
+Job: A   Time: 611
+Job: A   Time: 616
+Job: A   Time: 621
+Job: A   Time: 627
+Job: A   Time: 632
+Job: A   Time: 635
+Job: A   Time: 641
+Job: A   Time: 649
+Job: A   Time: 653
+Job: A   Time: 660
+Job: A   Time: 664
+Job: A   Time: 670
+Job: A   Time: 674
+Job: A   Time: 678
+Job: A   Time: 681
+Job: T   Time: 687
+Job: A   Time: 690
+Job: A   Time: 694
+Job: A   Time: 711
 This job exceeds the system's main memory capacity.
-Event: A   Time: 723
+Job: A   Time: 723
 This job exceeds the system's main memory capacity.
-Event: A   Time: 734
-Event: A   Time: 743
-Event: A   Time: 746
-Event: A   Time: 752
-Event: A   Time: 773
-Event: T   Time: 777
-Event: T   Time: 843
-Event: T   Time: 863
-Event: A   Time: 881
-Event: A   Time: 886
-Event: A   Time: 891
-Event: A   Time: 914
-Event: T   Time: 933
-Event: A   Time: 934
-Event: A   Time: 939
-Event: A   Time: 941
+Job: A   Time: 734
+Job: A   Time: 743
+Job: A   Time: 746
+Job: A   Time: 752
+Job: A   Time: 773
+Job: T   Time: 777
+Job: T   Time: 843
+Job: T   Time: 863
+Job: A   Time: 881
+Job: A   Time: 886
+Job: A   Time: 891
+Job: A   Time: 914
+Job: T   Time: 933
+Job: A   Time: 934
+Job: A   Time: 939
+Job: A   Time: 941
 This job exceeds the system's main memory capacity.
-Event: T   Time: 956
-Event: A   Time: 969
-Event: A   Time: 972
-Event: A   Time: 999
-Event: A   Time: 1004
-Event: D   Time: 1015
+Job: T   Time: 956
+Job: A   Time: 969
+Job: A   Time: 972
+Job: A   Time: 999
+Job: A   Time: 1004
+Job: D   Time: 1015
 
 ************************************************************
 
@@ -392,66 +392,66 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 29 blocks of main memory available in the system.
 
-Event: A   Time: 1031
-Event: A   Time: 1034
-Event: A   Time: 1036
-Event: A   Time: 1039
-Event: A   Time: 1045
-Event: A   Time: 1048
-Event: A   Time: 1054
-Event: T   Time: 1056
-Event: T   Time: 1146
-Event: T   Time: 1193
-Event: T   Time: 1236
-Event: T   Time: 1237
-Event: T   Time: 1336
-Event: T   Time: 1359
-Event: T   Time: 1418
-Event: E   Time: 1518
-Event: E   Time: 1618
-Event: E   Time: 1718
-Event: T   Time: 1719
-Event: E   Time: 1819
-Event: E   Time: 1919
-Event: T   Time: 2019
-Event: E   Time: 2119
-Event: T   Time: 2349
-Event: E   Time: 2649
-Event: T   Time: 2673
-Event: T   Time: 2803
-Event: E   Time: 3103
-Event: T   Time: 3402
-Event: E   Time: 3502
-Event: E   Time: 3802
-Event: T   Time: 4102
-Event: E   Time: 4202
-Event: E   Time: 4502
-Event: E   Time: 4802
-Event: T   Time: 4803
-Event: E   Time: 4903
-Event: E   Time: 5003
-Event: E   Time: 5103
-Event: E   Time: 5403
-Event: T   Time: 5453
-Event: E   Time: 5553
-Event: E   Time: 5653
-Event: E   Time: 5753
-Event: E   Time: 5853
-Event: E   Time: 5953
-Event: E   Time: 6053
-Event: E   Time: 6153
-Event: E   Time: 6253
-Event: E   Time: 6353
-Event: E   Time: 6453
-Event: E   Time: 6553
-Event: E   Time: 6653
-Event: T   Time: 6756
-Event: T   Time: 6844
-Event: T   Time: 6845
-Event: T   Time: 6917
-Event: T   Time: 7016
-Event: T   Time: 7050
-Event: D   Time: 7062
+Job: A   Time: 1031
+Job: A   Time: 1034
+Job: A   Time: 1036
+Job: A   Time: 1039
+Job: A   Time: 1045
+Job: A   Time: 1048
+Job: A   Time: 1054
+Job: T   Time: 1056
+Job: T   Time: 1146
+Job: T   Time: 1193
+Job: T   Time: 1236
+Job: T   Time: 1237
+Job: T   Time: 1336
+Job: T   Time: 1359
+Job: T   Time: 1418
+Job: E   Time: 1518
+Job: E   Time: 1618
+Job: E   Time: 1718
+Job: T   Time: 1719
+Job: E   Time: 1819
+Job: E   Time: 1919
+Job: T   Time: 2019
+Job: E   Time: 2119
+Job: T   Time: 2349
+Job: E   Time: 2649
+Job: T   Time: 2673
+Job: T   Time: 2803
+Job: E   Time: 3103
+Job: T   Time: 3402
+Job: E   Time: 3502
+Job: E   Time: 3802
+Job: T   Time: 4102
+Job: E   Time: 4202
+Job: E   Time: 4502
+Job: E   Time: 4802
+Job: T   Time: 4803
+Job: E   Time: 4903
+Job: E   Time: 5003
+Job: E   Time: 5103
+Job: E   Time: 5403
+Job: T   Time: 5453
+Job: E   Time: 5553
+Job: E   Time: 5653
+Job: E   Time: 5753
+Job: E   Time: 5853
+Job: E   Time: 5953
+Job: E   Time: 6053
+Job: E   Time: 6153
+Job: E   Time: 6253
+Job: E   Time: 6353
+Job: E   Time: 6453
+Job: E   Time: 6553
+Job: E   Time: 6653
+Job: T   Time: 6756
+Job: T   Time: 6844
+Job: T   Time: 6845
+Job: T   Time: 6917
+Job: T   Time: 7016
+Job: T   Time: 7050
+Job: D   Time: 7062
 
 ************************************************************
 
@@ -587,20 +587,20 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 46 blocks of main memory available in the system.
 
-Event: A   Time: 7072
-Event: T   Time: 7108
-Event: A   Time: 7179
-Event: E   Time: 7208
-Event: T   Time: 7312
-Event: A   Time: 7400
-Event: E   Time: 7412
-Event: A   Time: 7423
-Event: A   Time: 7463
-Event: A   Time: 7470
+Job: A   Time: 7072
+Job: T   Time: 7108
+Job: A   Time: 7179
+Job: E   Time: 7208
+Job: T   Time: 7312
+Job: A   Time: 7400
+Job: E   Time: 7412
+Job: A   Time: 7423
+Job: A   Time: 7463
+Job: A   Time: 7470
 This job exceeds the system's main memory capacity.
-Event: A   Time: 7500
-Event: T   Time: 7510
-Event: D   Time: 7543
+Job: A   Time: 7500
+Job: T   Time: 7510
+Job: D   Time: 7543
 
 ************************************************************
 
@@ -740,9 +740,9 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 12 blocks of main memory available in the system.
 
-Event: E   Time: 7610
-Event: A   Time: 7635
-Event: D   Time: 7810
+Job: E   Time: 7610
+Job: A   Time: 7635
+Job: D   Time: 7810
 
 ************************************************************
 
@@ -883,23 +883,23 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 12 blocks of main memory available in the system.
 
-Event: E   Time: 7910
-Event: E   Time: 8210
-Event: T   Time: 8509
-Event: E   Time: 8609
-Event: T   Time: 8742
-Event: T   Time: 8743
-Event: T   Time: 8899
-Event: T   Time: 8998
-Event: E   Time: 9298
-Event: T   Time: 9539
-Event: E   Time: 9639
-Event: T   Time: 9673
-Event: T   Time: 9765
-Event: T   Time: 9801
-Event: E   Time: 9901
-Event: E   Time: 10001
-Event: D   Time: 10007
+Job: E   Time: 7910
+Job: E   Time: 8210
+Job: T   Time: 8509
+Job: E   Time: 8609
+Job: T   Time: 8742
+Job: T   Time: 8743
+Job: T   Time: 8899
+Job: T   Time: 8998
+Job: E   Time: 9298
+Job: T   Time: 9539
+Job: E   Time: 9639
+Job: T   Time: 9673
+Job: T   Time: 9765
+Job: T   Time: 9801
+Job: E   Time: 9901
+Job: E   Time: 10001
+Job: D   Time: 10007
 
 ************************************************************
 
@@ -1040,87 +1040,87 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 3 blocks of main memory available in the system.
 
-Event: T   Time: 10008
-Event: T   Time: 10077
-Event: T   Time: 10377
-Event: E   Time: 10677
-Event: T   Time: 10749
-Event: E   Time: 11049
-Event: T   Time: 11053
-Event: E   Time: 11353
-Event: E   Time: 11653
-Event: E   Time: 11953
-Event: E   Time: 12253
-Event: E   Time: 12553
-Event: T   Time: 12727
-Event: E   Time: 13027
-Event: E   Time: 13327
-Event: T   Time: 13328
-Event: T   Time: 13398
-Event: T   Time: 13690
-Event: T   Time: 13751
-Event: T   Time: 13790
-Event: T   Time: 13800
-Event: E   Time: 13900
-Event: E   Time: 14200
-Event: T   Time: 14252
-Event: E   Time: 14352
-Event: E   Time: 14652
-Event: T   Time: 14765
-Event: T   Time: 14839
-Event: E   Time: 14939
-Event: T   Time: 15068
-Event: T   Time: 15112
-Event: E   Time: 15212
-Event: E   Time: 15512
-Event: E   Time: 15812
-Event: E   Time: 16112
-Event: T   Time: 16113
-Event: T   Time: 16205
-Event: T   Time: 16267
-Event: E   Time: 16367
-Event: T   Time: 16410
-Event: E   Time: 16510
-Event: T   Time: 16543
-Event: T   Time: 16545
-Event: T   Time: 16614
-Event: T   Time: 16713
-Event: T   Time: 16747
-Event: E   Time: 16847
-Event: E   Time: 16947
-Event: E   Time: 17247
-Event: T   Time: 17451
-Event: E   Time: 17751
-Event: T   Time: 17885
-Event: E   Time: 18185
-Event: E   Time: 18485
-Event: E   Time: 18785
-Event: T   Time: 18918
-Event: E   Time: 19018
-Event: T   Time: 19072
-Event: T   Time: 19129
-Event: E   Time: 19229
-Event: T   Time: 19232
-Event: T   Time: 19264
-Event: T   Time: 19276
-Event: T   Time: 19295
-Event: E   Time: 19595
-Event: T   Time: 19625
-Event: E   Time: 19725
-Event: E   Time: 19825
-Event: T   Time: 19826
-Event: T   Time: 19847
-Event: T   Time: 19860
-Event: T   Time: 19861
-Event: E   Time: 20161
-Event: E   Time: 20461
-Event: T   Time: 20462
-Event: E   Time: 20762
-Event: T   Time: 20854
-Event: E   Time: 21154
-Event: E   Time: 21454
-Event: T   Time: 21477
-Event: D   Time: 22000
+Job: T   Time: 10008
+Job: T   Time: 10077
+Job: T   Time: 10377
+Job: E   Time: 10677
+Job: T   Time: 10749
+Job: E   Time: 11049
+Job: T   Time: 11053
+Job: E   Time: 11353
+Job: E   Time: 11653
+Job: E   Time: 11953
+Job: E   Time: 12253
+Job: E   Time: 12553
+Job: T   Time: 12727
+Job: E   Time: 13027
+Job: E   Time: 13327
+Job: T   Time: 13328
+Job: T   Time: 13398
+Job: T   Time: 13690
+Job: T   Time: 13751
+Job: T   Time: 13790
+Job: T   Time: 13800
+Job: E   Time: 13900
+Job: E   Time: 14200
+Job: T   Time: 14252
+Job: E   Time: 14352
+Job: E   Time: 14652
+Job: T   Time: 14765
+Job: T   Time: 14839
+Job: E   Time: 14939
+Job: T   Time: 15068
+Job: T   Time: 15112
+Job: E   Time: 15212
+Job: E   Time: 15512
+Job: E   Time: 15812
+Job: E   Time: 16112
+Job: T   Time: 16113
+Job: T   Time: 16205
+Job: T   Time: 16267
+Job: E   Time: 16367
+Job: T   Time: 16410
+Job: E   Time: 16510
+Job: T   Time: 16543
+Job: T   Time: 16545
+Job: T   Time: 16614
+Job: T   Time: 16713
+Job: T   Time: 16747
+Job: E   Time: 16847
+Job: E   Time: 16947
+Job: E   Time: 17247
+Job: T   Time: 17451
+Job: E   Time: 17751
+Job: T   Time: 17885
+Job: E   Time: 18185
+Job: E   Time: 18485
+Job: E   Time: 18785
+Job: T   Time: 18918
+Job: E   Time: 19018
+Job: T   Time: 19072
+Job: T   Time: 19129
+Job: E   Time: 19229
+Job: T   Time: 19232
+Job: T   Time: 19264
+Job: T   Time: 19276
+Job: T   Time: 19295
+Job: E   Time: 19595
+Job: T   Time: 19625
+Job: E   Time: 19725
+Job: E   Time: 19825
+Job: T   Time: 19826
+Job: T   Time: 19847
+Job: T   Time: 19860
+Job: T   Time: 19861
+Job: E   Time: 20161
+Job: E   Time: 20461
+Job: T   Time: 20462
+Job: E   Time: 20762
+Job: T   Time: 20854
+Job: E   Time: 21154
+Job: E   Time: 21454
+Job: T   Time: 21477
+Job: D   Time: 22000
 
 ************************************************************
 
@@ -1258,8 +1258,8 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 512 blocks of main memory available in the system.
 
-Event: A   Time: 22001
-Event: T   Time: 22002
+Job: A   Time: 22001
+Job: T   Time: 22002
 
 The contents of the FINAL FINISHED LIST
 ---------------------------------------
