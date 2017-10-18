@@ -58,37 +58,40 @@ public class Scheduler {
 			externalQ.add(e);
 		}
 		
-		Event event = externalQ.poll();
+		Event inEvent = externalQ.poll();
+		Event exEvent = null;
 		
 		while(externalQ.size() > 0 || internalQ.size() > 0 || readyQ1.size() > 0
 				|| readyQ2.size() > 0 || jobSchedulingQ.size() > 0 || onCPU != null) {
 			//handle internals
 			if(internalQ.size() > 0) {
-				event = internalQ.poll();
-				System.out.println("Job: " + event.getType().toString() + "\tTime: " + event.getTime());
+				exEvent = internalQ.poll();
+				handler.eventOccurs(exEvent);
 
-				if(event.getType().equals(EventType.T)) {
-					handler.handleEventT(event, finishedJobs);
-				} else if(event.getType().equals(EventType.E)) {
-					handler.handleEventE(event, readyQ2);
+				if(exEvent.getType().equals(EventType.T)) {
+					handler.handleEventT(exEvent, finishedJobs);
+				} else if(exEvent.getType().equals(EventType.E)) {
+					handler.handleEventE(exEvent, readyQ2);
 				}
 				
 			} else {
 				// handle (external) events
-				if(event != null && systemTime == event.getTime()) {
-					System.out.println("Job: " + event.getType().toString() + "\tTime: " + event.getTime());
+				if(inEvent != null && systemTime == inEvent.getTime()) {
+					handler.eventOccurs(inEvent);
 					// Event A
-					if (event.getType().equals(EventType.A)) {
-						handler.handleEventA(event, MAX_MEMORY, jobSchedulingQ);
+					if (inEvent.getType().equals(EventType.A)) {
+						handler.handleEventA(inEvent, MAX_MEMORY, jobSchedulingQ);
 							
 					// Event D
-					} else if (event.getType().equals(EventType.D)) {
+					} else if (inEvent.getType().equals(EventType.D)) {
 						handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, finishedJobs);
+					} else if (inEvent.getType().equals(EventType.F)) {
+						handler.handleEventF(finishedJobs);
 					}
 					
 					
 					//get next event
-					event = externalQ.poll();
+					inEvent = externalQ.poll();
 				}
 				
 				//handle queues
@@ -120,6 +123,7 @@ public class Scheduler {
 						e.setTime(systemTime);
 						e.setType(EventType.T);
 						internalQ.add(e);
+						usedMemory -=  onCPU.getJob().getMemory();
 						//take process off CPU
 						onCPU = null;
 					} else if(onCPU.getQuantum() <= 0) {
@@ -136,10 +140,11 @@ public class Scheduler {
 					}
 				}
 				
+//				if(systemTime % 100 == 0 && systemTime <= 2000) {
+//					System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks available in the system.\n");
+//				}
 				systemTime++;
 			}
-			
-			
 		}
 		handler.handleEventEndSim(systemTime, finishedJobs);	
 	}

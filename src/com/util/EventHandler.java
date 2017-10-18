@@ -7,6 +7,15 @@ import com.model.Event;
 import com.model.Job;
 
 public class EventHandler {
+	public void eventOccurs(Event event) {
+		System.out.print("Event: " + event.getType().toString() + "\tTime: " + event.getTime());
+		if(event.getJob() != null) {
+			System.out.println("\tJob ID: " + event.getJob().getId());
+		} else {
+			System.out.println();
+		}
+	}
+	
 	public void handleEventA(Event event, int MAX_MEMORY, Queue<Job> jobSchedulingQ) {
 		Job j = event.getJob();
 		if(j.getMemory() > (MAX_MEMORY)) {
@@ -107,7 +116,7 @@ public class EventHandler {
 		
 		if(finishedJobs.size() > 0) {
 			sb.append("Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time\n")
-			  .append("-----  ---------  ---------  --------  ----------  ---------");
+			  .append("-----  ---------  ---------  --------  ----------  ---------\n\n");
 		}
 		
 		for(Job job : finishedJobs) {
@@ -120,6 +129,28 @@ public class EventHandler {
 		average_TA = average_TA/finishedJobs.size();
 		
 		sb.append("\nThe Average Turnaround Time for the simulation was " + average_TA + " units.\n\n");
-//		sb.append()
+
+		System.out.println(sb.toString());
+	}
+	
+	public void handleEventF(List<Job> finishedJobs) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("The contents of the FINAL FINISHED LIST\n")
+		  .append("---------------------------------------\n\n");
+		
+		if(finishedJobs.size() > 0) {
+			sb.append("Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time\n")
+			  .append("-----  ---------  ---------  --------  ----------  ---------");
+		} else {
+			sb.append("The Finished List is empty.\n\n");
+		}
+		
+		for(Job job : finishedJobs) {
+			sb.append(job.getId() + "\t" + job.getArrivalTime() + "\t"
+					+ job.getMemory() + "\t" + job.getRuntime() + "\t"
+					+ job.getStartTime() + "\t" + job.getArrivalTime() + "\n\n");
+		}
+		
+		System.out.println(sb.toString());
 	}
 }

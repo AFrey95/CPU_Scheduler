@@ -1,22 +1,23 @@
 package com.util;
 
 public enum EventType {
-	A, I, D, C, T, E, R;
+	A, I, D, C, T, E, R, F;
 	
 	public static EventType getEventType(String e) {
 		e = e.toLowerCase();
-		EventType evnetType;
+		EventType eventType;
 		
 		switch(e) {
-			case "a": evnetType = EventType.A; break;
-			case "i": evnetType = EventType.I; break;
-			case "d": evnetType = EventType.D; break;
-			case "t": evnetType = EventType.T; break;
-			case "e": evnetType = EventType.E; break;
-			default: evnetType = EventType.R; break;
+			case "a": eventType = EventType.A; break;
+			case "i": eventType = EventType.I; break;
+			case "d": eventType = EventType.D; break;
+			case "t": eventType = EventType.T; break;
+			case "e": eventType = EventType.E; break;
+			case "f": eventType = EventType.F; break;
+			default: eventType = EventType.R; break;
 		}
 		
-		return evnetType;
+		return eventType;
 	}
 	
 	//TODO: Override .toString()
