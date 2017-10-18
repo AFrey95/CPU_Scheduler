@@ -6,6 +6,12 @@ public class Event {
 	EventType type;
 	int time;
 	Job job;
+		
+	public Event(EventType type, int time, Job job) {
+		this.type = type;
+		this.time = time;
+		this.job = job;
+	}
 	
 	public EventType getType() {
 		return type;

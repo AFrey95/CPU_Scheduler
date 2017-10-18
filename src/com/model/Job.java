@@ -7,6 +7,7 @@ public class Job {
 	int runtime;
 	int startTime;
 	int comTime;
+	int remainingTime;
 	
 	public Job() {}
 	
@@ -17,6 +18,7 @@ public class Job {
 		this.runtime = runtime;
 		this.startTime = 0;
 		this.comTime = 0;
+		this.remainingTime = runtime;
 	}
 	
 	public int getId() {
@@ -60,7 +62,15 @@ public class Job {
 		this.comTime = comTime;
 	}
 	
+	public int getRemainingTime() {
+		return remainingTime;
+	}
+
+	public void setRemainingTime(int remainingTime) {
+		this.remainingTime = remainingTime;
+	}
+
 	public void tick() {
-		this.runtime--;
+		this.remainingTime--;
 	}
 }

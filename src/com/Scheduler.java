@@ -1,7 +1,5 @@
 package com;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -22,10 +20,11 @@ public class Scheduler {
 		int systemTime = 0;
 		
 		EventHandler handler = new EventHandler();
-		
+
+		Queue<Job> jobSchedulingQ = new ConcurrentLinkedQueue<Job>();
 		Queue<Job> readyQ1 = new ConcurrentLinkedQueue<Job>();
 		Queue<Job> readyQ2 = new ConcurrentLinkedQueue<Job>();
-		Queue<Job> jobSchedulingQ = new ConcurrentLinkedQueue<Job>();
+		Queue<Job> ioWaitQ = new ConcurrentLinkedQueue<Job>();
 		List<Job> finishedJobs = new ArrayList<Job>();
 		CPUProcess onCPU = null;
 		
@@ -37,61 +36,71 @@ public class Scheduler {
 		String lineIn;
 		String[] argsIn;
 		
-		//get user input
+		//USER IO
 		while(sc.hasNextLine() && !(lineIn = sc.nextLine()).equalsIgnoreCase("done")) {
 			
-			argsIn = lineIn.split("(\\s)+");
+			try {
+				argsIn = lineIn.split("(\\s)+");
 
-			//parse input into event
-			Event e = new Event();
-			e.setType(EventType.getEventType(argsIn[0]));
-			e.setTime(Integer.parseInt(argsIn[1]));
-			
-			if(e.getType().equals(EventType.A)) {
-				e.setJob(new Job(Integer.parseInt(argsIn[1]),
-									Integer.parseInt(argsIn[2]),
-									Integer.parseInt(argsIn[3]),
-									Integer.parseInt(argsIn[4])));
+				//parse input into event
+				Event e = new Event(EventType.getEventType(argsIn[0]), Integer.parseInt(argsIn[1]), null);
+				
+				if(e.getType().equals(EventType.A)) {
+					e.setJob(new Job(Integer.parseInt(argsIn[1]),
+										Integer.parseInt(argsIn[2]),
+										Integer.parseInt(argsIn[3]),
+										Integer.parseInt(argsIn[4])));
+				}
+				
+				//add event to q
+				externalQ.add(e);
+			} catch (NumberFormatException e) {
+				System.out.println("Fatal Error: Could not parse numbers. Please use only integers.");
+				System.exit(1);
+			} catch (Exception e) {
+				//do nothing
 			}
-			
-			//add event to q
-			externalQ.add(e);
 		}
 		
-		Event inEvent = externalQ.poll();
-		Event exEvent = null;
+		Event exEvent = externalQ.poll();
+		Event inEvent = null;
 		
+		//SCHEDULING LOOP
 		while(externalQ.size() > 0 || internalQ.size() > 0 || readyQ1.size() > 0
 				|| readyQ2.size() > 0 || jobSchedulingQ.size() > 0 || onCPU != null) {
+			
+			
 			//handle internals
 			if(internalQ.size() > 0) {
-				exEvent = internalQ.poll();
-				handler.eventOccurs(exEvent);
+				inEvent = internalQ.poll();
+				handler.eventOccurs(inEvent, systemTime);
 
-				if(exEvent.getType().equals(EventType.T)) {
-					handler.handleEventT(exEvent, finishedJobs);
-				} else if(exEvent.getType().equals(EventType.E)) {
-					handler.handleEventE(exEvent, readyQ2);
+				if(inEvent.getType().equals(EventType.T)) {
+					onCPU = handler.handleEventT(inEvent, finishedJobs, readyQ1, readyQ2);
+//					onCPU = handler.handleEventT2(inEvent, finishedJobs, readyQ1, readyQ2, onCPU, systemTime);
+				} else if(inEvent.getType().equals(EventType.E)) {
+					onCPU = handler.handleEventE(inEvent, readyQ1, readyQ2);
+//					onCPU = handler.handleEventE2(inEvent, readyQ1, readyQ2, onCPU, systemTime);
 				}
 				
 			} else {
 				// handle (external) events
-				if(inEvent != null && systemTime == inEvent.getTime()) {
-					handler.eventOccurs(inEvent);
+				if(exEvent != null && systemTime == exEvent.getTime()) {
+					handler.eventOccurs(exEvent, systemTime);
 					// Event A
-					if (inEvent.getType().equals(EventType.A)) {
-						handler.handleEventA(inEvent, MAX_MEMORY, jobSchedulingQ);
+					if (exEvent.getType().equals(EventType.A)) {
+						handler.handleEventA(exEvent, MAX_MEMORY, jobSchedulingQ);
 							
 					// Event D
-					} else if (inEvent.getType().equals(EventType.D)) {
-						handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, finishedJobs);
-					} else if (inEvent.getType().equals(EventType.F)) {
-						handler.handleEventF(finishedJobs);
-					}
-					
+					} else if (exEvent.getType().equals(EventType.D)) {
+						handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, ioWaitQ, onCPU, finishedJobs);
+					} 
+//					else if (exEvent.getType().equals(EventType.F)) {
+//						handler.handleEventF(finishedJobs);
+//					}
 					
 					//get next event
-					inEvent = externalQ.poll();
+					exEvent = externalQ.poll();
 				}
 				
 				//handle queues
@@ -103,46 +112,32 @@ public class Scheduler {
 				}
 				
 				//if there is nothing on the CPU
-				if(onCPU == null) {
+				if(onCPU == null) { //should only happen until first job arrives
 					//if there is something on the ready Q
-					if(readyQ1.size() > 0) {
-						//put a process on the CPU
-						onCPU = new CPUProcess(readyQ1.poll(), 100, systemTime);
-//						usedMemory -= onCPU.getJob().getMemory();
-					} else if(readyQ2.size() > 0) {
-						onCPU = new CPUProcess(readyQ2.poll(), 300, systemTime);
-//						usedMemory -= onCPU.getJob().getMemory();
-					}
-				} else {
+					onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
+				}
+				if(onCPU != null) {
 					//update the process timer (runtime and quantum)
 					onCPU.tick();
-					if(onCPU.getJob().getRuntime() <= 0) {
+					
+					//if job is done
+					if(onCPU.getJob().getRemainingTime() <= 0) {
 						//generate T event
-						Event e = new Event();
-						e.setJob(onCPU.getJob());
-						e.setTime(systemTime);
-						e.setType(EventType.T);
+						Event e = new Event(EventType.T, systemTime+1, onCPU.getJob());
 						internalQ.add(e);
 						usedMemory -=  onCPU.getJob().getMemory();
 						//take process off CPU
-						onCPU = null;
+//						onCPU = null;
+					//if quantum expired
 					} else if(onCPU.getQuantum() <= 0) {
 						//generate E event
-						Event e = new Event();
-						e.setJob(onCPU.getJob());
-						e.setTime(systemTime);
-						e.setType(EventType.E);
+						Event e = new Event(EventType.E, systemTime+1, onCPU.getJob());
 						internalQ.add(e);
-						//put job back in memory
-//						usedMemory += onCPU.getJob().getMemory();
 						//take process off CPU
-						onCPU = null;
+//						onCPU = null;
 					}
 				}
 				
-//				if(systemTime % 100 == 0 && systemTime <= 2000) {
-//					System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks available in the system.\n");
-//				}
 				systemTime++;
 			}
 		}

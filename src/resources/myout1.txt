@@ -249,45 +249,22 @@ Event: A   Time: 746
 Event: A   Time: 752
 Event: A   Time: 773
 Event: T   Time: 777
-Event: I   Time: 780
-Event: I   Time: 783
-Event: I   Time: 789
-Event: C   Time: 792
-Event: I   Time: 794
-Event: C   Time: 838
+Event: T   Time: 843
+Event: T   Time: 863
 Event: A   Time: 881
 Event: A   Time: 886
 Event: A   Time: 891
-Event: T   Time: 894
-Event: I   Time: 902
-Event: C   Time: 903
-Event: C   Time: 905
-Event: I   Time: 905
 Event: A   Time: 914
-Event: C   Time: 915
-Event: T   Time: 922
-Event: I   Time: 932
+Event: T   Time: 933
 Event: A   Time: 934
-Event: C   Time: 935
 Event: A   Time: 939
 Event: A   Time: 941
 This job exceeds the system's main memory capacity.
-Event: I   Time: 943
-Event: I   Time: 945
-Event: C   Time: 946
-Event: C   Time: 948
-Event: I   Time: 952
-Event: T   Time: 960
-Event: C   Time: 962
-Event: I   Time: 966
+Event: T   Time: 956
 Event: A   Time: 969
 Event: A   Time: 972
-Event: I   Time: 976
-Event: I   Time: 982
-Event: T   Time: 983
 Event: A   Time: 999
 Event: A   Time: 1004
-Event: I   Time: 1009
 Event: D   Time: 1015
 
 ************************************************************
@@ -364,7 +341,13 @@ Job #  Arr. Time  Mem. Req.  Run Time
 The contents of the FIRST LEVEL READY QUEUE
 -------------------------------------------
 
-The First Level Ready Queue is empty.
+Job #  Arr. Time  Mem. Req.  Run Time
+-----  ---------  ---------  --------
+
+   19        271        232        90
+   20        278        102        47
+   21        300        123        43
+   22        306          1         1
 
 
 The contents of the SECOND LEVEL READY QUEUE
@@ -376,20 +359,13 @@ The Second Level Ready Queue is empty.
 The contents of the I/O WAIT QUEUE
 ----------------------------------
 
-Job #  Arr. Time  Mem. Req.  Run Time  IO Start Time  IO Burst  Comp. Time
------  ---------  ---------  --------  -------------  --------  ----------
-
-   20        278        102        47           1009        50        1059
-   21        300        123        43            982       103        1085
-   19        271        232        90            966       200        1166
-   13        188          9        66            976       207        1183
-   15        195          1        70            789       500        1289
+The I/O Wait Queue is empty.
 
 
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-The CPU is idle.
+     17         956                   41
 
 
 The contents of the FINISHED LIST
@@ -408,13 +384,13 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
 
 
-There are 45 blocks of main memory available in the system.
+There are 29 blocks of main memory available in the system.
 
 Event: A   Time: 1031
 Event: A   Time: 1034
@@ -423,63 +399,57 @@ Event: A   Time: 1039
 Event: A   Time: 1045
 Event: A   Time: 1048
 Event: A   Time: 1054
-Event: C   Time: 1059
-Event: I   Time: 1060
-Event: C   Time: 1062
-Event: T   Time: 1072
-Event: C   Time: 1085
-Event: C   Time: 1166
-Event: T   Time: 1171
-Event: C   Time: 1183
-Event: T   Time: 1208
-Event: T   Time: 1282
-Event: C   Time: 1289
-Event: T   Time: 1324
-Event: T   Time: 1347
-Event: T   Time: 1411
-Event: T   Time: 1470
-Event: E   Time: 1570
-Event: E   Time: 1670
-Event: E   Time: 1770
-Event: T   Time: 1771
-Event: E   Time: 1871
-Event: E   Time: 1971
-Event: T   Time: 2071
-Event: E   Time: 2171
-Event: T   Time: 2401
-Event: E   Time: 2701
-Event: T   Time: 2725
-Event: T   Time: 2855
-Event: E   Time: 3155
-Event: T   Time: 3454
-Event: E   Time: 3554
-Event: E   Time: 3854
-Event: T   Time: 4154
-Event: E   Time: 4254
-Event: E   Time: 4554
-Event: E   Time: 4854
-Event: T   Time: 4855
-Event: E   Time: 4955
-Event: E   Time: 5055
-Event: E   Time: 5155
-Event: E   Time: 5455
-Event: T   Time: 5505
-Event: E   Time: 5605
-Event: E   Time: 5705
-Event: E   Time: 5805
-Event: E   Time: 5905
-Event: E   Time: 6005
-Event: E   Time: 6105
-Event: E   Time: 6205
-Event: E   Time: 6305
-Event: E   Time: 6405
-Event: E   Time: 6505
-Event: E   Time: 6605
-Event: E   Time: 6705
-Event: T   Time: 6808
-Event: T   Time: 6896
-Event: T   Time: 6897
-Event: T   Time: 6969
+Event: T   Time: 1056
+Event: T   Time: 1146
+Event: T   Time: 1193
+Event: T   Time: 1236
+Event: T   Time: 1237
+Event: T   Time: 1336
+Event: T   Time: 1359
+Event: T   Time: 1418
+Event: E   Time: 1518
+Event: E   Time: 1618
+Event: E   Time: 1718
+Event: T   Time: 1719
+Event: T   Time: 1819
+Event: E   Time: 1919
+Event: E   Time: 2019
+Event: E   Time: 2119
+Event: T   Time: 2349
+Event: E   Time: 2649
+Event: T   Time: 2673
+Event: T   Time: 2803
+Event: E   Time: 3103
+Event: T   Time: 3402
+Event: E   Time: 3502
+Event: E   Time: 3802
+Event: T   Time: 4102
+Event: E   Time: 4202
+Event: E   Time: 4502
+Event: E   Time: 4802
+Event: T   Time: 4803
+Event: E   Time: 4903
+Event: E   Time: 5003
+Event: E   Time: 5103
+Event: E   Time: 5403
+Event: T   Time: 5453
+Event: T   Time: 5556
+Event: E   Time: 5656
+Event: E   Time: 5756
+Event: E   Time: 5856
+Event: E   Time: 5956
+Event: E   Time: 6056
+Event: E   Time: 6156
+Event: E   Time: 6256
+Event: E   Time: 6356
+Event: E   Time: 6456
+Event: E   Time: 6556
+Event: E   Time: 6656
+Event: E   Time: 6756
+Event: T   Time: 6844
+Event: T   Time: 6845
+Event: T   Time: 6949
+Event: T   Time: 7021
 Event: D   Time: 7062
 
 ************************************************************
@@ -492,9 +462,6 @@ The contents of the JOB SCHEDULING QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   54        621         21        34
-   55        627         43        58
-   56        632         16       107
    57        635         91       169
    58        641         89       400
    59        649         37       770
@@ -534,7 +501,12 @@ Job #  Arr. Time  Mem. Req.  Run Time
 The contents of the FIRST LEVEL READY QUEUE
 -------------------------------------------
 
-The First Level Ready Queue is empty.
+Job #  Arr. Time  Mem. Req.  Run Time
+-----  ---------  ---------  --------
+
+   54        621         21        34
+   55        627         43        58
+   56        632         16       107
 
 
 The contents of the SECOND LEVEL READY QUEUE
@@ -543,7 +515,6 @@ The contents of the SECOND LEVEL READY QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   37        508         89       204
    39        511         14       198
    40        516         17      1001
    41        519         43       472
@@ -566,7 +537,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     53        6969                    6
+     53        7021                   58
 
 
 The contents of the FINISHED LIST
@@ -585,50 +556,50 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
-   20        278        102        47         902       1072
-   23        309        100        99        1072       1171
-   21        300        123        43         976       1208
-   19        271        232        90         894       1282
-   13        188          9        66         777       1324
-   24        313        179        23        1324       1347
-   15        195          1        70         783       1411
-   25        351        342        59        1411       1470
-   26        401         58       101        1470       1771
-   27        404        125       200        1570       2071
-   28        410          3       330        1670       2401
-   30        423         20       124        1871       2725
-   31        450         70       230        2071       2855
-   29        417        340       999        1771       3454
-   32        467        184       700        3454       4154
-   33        470        500       701        4154       4855
-   35        480        432       150        4955       5505
-   36        499         37       203        5055       6808
-   51        602         56        88        6808       6896
-   34        474         19       401        4855       6897
-   52        611        105        72        6897       6969
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
+   17        260         25       100         956       1056
+   19        271        232        90        1056       1146
+   20        278        102        47        1146       1193
+   21        300        123        43        1193       1236
+   22        306          1         1        1236       1237
+   23        309        100        99        1237       1336
+   24        313        179        23        1336       1359
+   25        351        342        59        1359       1418
+   26        401         58       101        1718       1719
+   27        404        125       200        1719       1819
+   28        410          3       330        2119       2349
+   30        423         20       124        2649       2673
+   31        450         70       230        2673       2803
+   29        417        340       999        3103       3402
+   32        467        184       700        3802       4102
+   33        470        500       701        4802       4803
+   35        480        432       150        5403       5453
+   36        499         37       203        5453       5556
+   51        602         56        88        6756       6844
+   34        474         19       401        6844       6845
+   37        508         89       204        6845       6949
+   52        611        105        72        6949       7021
 
 
-There are 16 blocks of main memory available in the system.
+There are 25 blocks of main memory available in the system.
 
-Event: T   Time: 7068
 Event: A   Time: 7072
-Event: T   Time: 7102
-Event: T   Time: 7160
+Event: T   Time: 7120
+Event: T   Time: 7154
 Event: A   Time: 7179
-Event: E   Time: 7260
-Event: T   Time: 7364
+Event: T   Time: 7212
+Event: E   Time: 7312
 Event: A   Time: 7400
+Event: E   Time: 7412
 Event: A   Time: 7423
-Event: I   Time: 7459
 Event: A   Time: 7463
 Event: A   Time: 7470
 This job exceeds the system's main memory capacity.
-Event: C   Time: 7473
 Event: A   Time: 7500
+Event: T   Time: 7510
 Event: D   Time: 7543
 
 ************************************************************
@@ -641,7 +612,6 @@ The contents of the JOB SCHEDULING QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   58        641         89       400
    59        649         37       770
    60        653        123       574
    61        660         10        34
@@ -685,7 +655,10 @@ Job #  Arr. Time  Mem. Req.  Run Time
 The contents of the FIRST LEVEL READY QUEUE
 -------------------------------------------
 
-The First Level Ready Queue is empty.
+Job #  Arr. Time  Mem. Req.  Run Time
+-----  ---------  ---------  --------
+
+   58        641         89       400
 
 
 The contents of the SECOND LEVEL READY QUEUE
@@ -694,7 +667,6 @@ The contents of the SECOND LEVEL READY QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   40        516         17      1001
    41        519         43       472
    42        524         39       399
    43        537         78       233
@@ -705,7 +677,7 @@ Job #  Arr. Time  Mem. Req.  Run Time
    49        586         30       341
    50        590         61       192
    56        632         16       107
-   39        511         14       198
+   57        635         91       169
 
 
 The contents of the I/O WAIT QUEUE
@@ -717,7 +689,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     57        7364                    4
+     40        7510                  267
 
 
 The contents of the FINISHED LIST
@@ -736,44 +708,42 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
-   20        278        102        47         902       1072
-   23        309        100        99        1072       1171
-   21        300        123        43         976       1208
-   19        271        232        90         894       1282
-   13        188          9        66         777       1324
-   24        313        179        23        1324       1347
-   15        195          1        70         783       1411
-   25        351        342        59        1411       1470
-   26        401         58       101        1470       1771
-   27        404        125       200        1570       2071
-   28        410          3       330        1670       2401
-   30        423         20       124        1871       2725
-   31        450         70       230        2071       2855
-   29        417        340       999        1771       3454
-   32        467        184       700        3454       4154
-   33        470        500       701        4154       4855
-   35        480        432       150        4955       5505
-   36        499         37       203        5055       6808
-   51        602         56        88        6808       6896
-   34        474         19       401        4855       6897
-   52        611        105        72        6897       6969
-   53        616         89        99        6969       7068
-   54        621         21        34        7068       7102
-   55        627         43        58        7102       7160
-   37        508         89       204        5505       7364
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
+   17        260         25       100         956       1056
+   19        271        232        90        1056       1146
+   20        278        102        47        1146       1193
+   21        300        123        43        1193       1236
+   22        306          1         1        1236       1237
+   23        309        100        99        1237       1336
+   24        313        179        23        1336       1359
+   25        351        342        59        1359       1418
+   26        401         58       101        1718       1719
+   27        404        125       200        1719       1819
+   28        410          3       330        2119       2349
+   30        423         20       124        2649       2673
+   31        450         70       230        2673       2803
+   29        417        340       999        3103       3402
+   32        467        184       700        3802       4102
+   33        470        500       701        4802       4803
+   35        480        432       150        5403       5453
+   36        499         37       203        5453       5556
+   51        602         56        88        6756       6844
+   34        474         19       401        6844       6845
+   37        508         89       204        6845       6949
+   52        611        105        72        6949       7021
+   53        616         89        99        7021       7120
+   54        621         21        34        7120       7154
+   55        627         43        58        7154       7212
+   39        511         14       198        7412       7510
 
 
-There are 87 blocks of main memory available in the system.
+There are 12 blocks of main memory available in the system.
 
-Event: T   Time: 7547
 Event: A   Time: 7635
-Event: E   Time: 7647
-Event: E   Time: 7747
-Event: I   Time: 7807
+Event: E   Time: 7810
 Event: D   Time: 7810
 
 ************************************************************
@@ -786,6 +756,7 @@ The contents of the JOB SCHEDULING QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
+   59        649         37       770
    60        653        123       574
    61        660         10        34
    62        664         23        36
@@ -838,6 +809,7 @@ The contents of the SECOND LEVEL READY QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
+   41        519         43       472
    42        524         39       399
    43        537         78       233
    44        545          6       101
@@ -847,24 +819,20 @@ Job #  Arr. Time  Mem. Req.  Run Time
    49        586         30       341
    50        590         61       192
    56        632         16       107
-   39        511         14       198
-   58        641         89       400
-   59        649         37       770
+   57        635         91       169
+   40        516         17      1001
 
 
 The contents of the I/O WAIT QUEUE
 ----------------------------------
 
-Job #  Arr. Time  Mem. Req.  Run Time  IO Start Time  IO Burst  Comp. Time
------  ---------  ---------  --------  -------------  --------  ----------
-
-   40        516         17      1001           7807       127        7934
+The I/O Wait Queue is empty.
 
 
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     41        5805                  369
+     58        7810                  100
 
 
 The contents of the FINISHED LIST
@@ -883,57 +851,56 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
-   20        278        102        47         902       1072
-   23        309        100        99        1072       1171
-   21        300        123        43         976       1208
-   19        271        232        90         894       1282
-   13        188          9        66         777       1324
-   24        313        179        23        1324       1347
-   15        195          1        70         783       1411
-   25        351        342        59        1411       1470
-   26        401         58       101        1470       1771
-   27        404        125       200        1570       2071
-   28        410          3       330        1670       2401
-   30        423         20       124        1871       2725
-   31        450         70       230        2071       2855
-   29        417        340       999        1771       3454
-   32        467        184       700        3454       4154
-   33        470        500       701        4154       4855
-   35        480        432       150        4955       5505
-   36        499         37       203        5055       6808
-   51        602         56        88        6808       6896
-   34        474         19       401        4855       6897
-   52        611        105        72        6897       6969
-   53        616         89        99        6969       7068
-   54        621         21        34        7068       7102
-   55        627         43        58        7102       7160
-   37        508         89       204        5505       7364
-   57        635         91       169        7364       7547
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
+   17        260         25       100         956       1056
+   19        271        232        90        1056       1146
+   20        278        102        47        1146       1193
+   21        300        123        43        1193       1236
+   22        306          1         1        1236       1237
+   23        309        100        99        1237       1336
+   24        313        179        23        1336       1359
+   25        351        342        59        1359       1418
+   26        401         58       101        1718       1719
+   27        404        125       200        1719       1819
+   28        410          3       330        2119       2349
+   30        423         20       124        2649       2673
+   31        450         70       230        2673       2803
+   29        417        340       999        3103       3402
+   32        467        184       700        3802       4102
+   33        470        500       701        4802       4803
+   35        480        432       150        5403       5453
+   36        499         37       203        5453       5556
+   51        602         56        88        6756       6844
+   34        474         19       401        6844       6845
+   37        508         89       204        6845       6949
+   52        611        105        72        6949       7021
+   53        616         89        99        7021       7120
+   54        621         21        34        7120       7154
+   55        627         43        58        7154       7212
+   39        511         14       198        7412       7510
 
 
-There are 52 blocks of main memory available in the system.
+There are 12 blocks of main memory available in the system.
 
-Event: C   Time: 7934
-Event: E   Time: 8034
-Event: T   Time: 8333
-Event: T   Time: 8466
-Event: E   Time: 8566
-Event: T   Time: 8600
-Event: T   Time: 8636
-Event: E   Time: 8736
-Event: T   Time: 8737
-Event: T   Time: 8893
-Event: T   Time: 8992
-Event: E   Time: 9292
-Event: T   Time: 9533
-Event: E   Time: 9633
-Event: T   Time: 9725
-Event: T   Time: 9732
-Event: T   Time: 9816
+Event: E   Time: 7910
+Event: E   Time: 8210
+Event: T   Time: 8509
+Event: T   Time: 8642
+Event: E   Time: 8742
+Event: T   Time: 8743
+Event: T   Time: 8899
+Event: T   Time: 8998
+Event: E   Time: 9298
+Event: T   Time: 9539
+Event: T   Time: 9631
+Event: E   Time: 9731
+Event: T   Time: 9765
+Event: T   Time: 9801
+Event: E   Time: 9901
+Event: E   Time: 10001
 Event: D   Time: 10007
 
 ************************************************************
@@ -993,12 +960,14 @@ The contents of the SECOND LEVEL READY QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   59        649         37       770
-   41        519         43       472
+   57        635         91       169
    40        516         17      1001
+   58        641         89       400
+   41        519         43       472
+   59        649         37       770
+   47        580         20       404
    60        653        123       574
    63        670         24       992
-   47        580         20       404
    64        674         49       761
 
 
@@ -1011,7 +980,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     58        7547                  109
+     56       10001                    1
 
 
 The contents of the FINISHED LIST
@@ -1030,129 +999,129 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
-   20        278        102        47         902       1072
-   23        309        100        99        1072       1171
-   21        300        123        43         976       1208
-   19        271        232        90         894       1282
-   13        188          9        66         777       1324
-   24        313        179        23        1324       1347
-   15        195          1        70         783       1411
-   25        351        342        59        1411       1470
-   26        401         58       101        1470       1771
-   27        404        125       200        1570       2071
-   28        410          3       330        1670       2401
-   30        423         20       124        1871       2725
-   31        450         70       230        2071       2855
-   29        417        340       999        1771       3454
-   32        467        184       700        3454       4154
-   33        470        500       701        4154       4855
-   35        480        432       150        4955       5505
-   36        499         37       203        5055       6808
-   51        602         56        88        6808       6896
-   34        474         19       401        4855       6897
-   52        611        105        72        6897       6969
-   53        616         89        99        6969       7068
-   54        621         21        34        7068       7102
-   55        627         43        58        7102       7160
-   37        508         89       204        5505       7364
-   57        635         91       169        7364       7547
-   42        524         39       399        5905       8333
-   43        537         78       233        6005       8466
-   61        660         10        34        8566       8600
-   62        664         23        36        8600       8636
-   44        545          6       101        6105       8737
-   45        566          9       256        6205       8893
-   46        574          1       199        6305       8992
-   49        586         30       341        6505       9533
-   50        590         61       192        6605       9725
-   56        632         16       107        7160       9732
-   39        511         14       198        5605       9816
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
+   17        260         25       100         956       1056
+   19        271        232        90        1056       1146
+   20        278        102        47        1146       1193
+   21        300        123        43        1193       1236
+   22        306          1         1        1236       1237
+   23        309        100        99        1237       1336
+   24        313        179        23        1336       1359
+   25        351        342        59        1359       1418
+   26        401         58       101        1718       1719
+   27        404        125       200        1719       1819
+   28        410          3       330        2119       2349
+   30        423         20       124        2649       2673
+   31        450         70       230        2673       2803
+   29        417        340       999        3103       3402
+   32        467        184       700        3802       4102
+   33        470        500       701        4802       4803
+   35        480        432       150        5403       5453
+   36        499         37       203        5453       5556
+   51        602         56        88        6756       6844
+   34        474         19       401        6844       6845
+   37        508         89       204        6845       6949
+   52        611        105        72        6949       7021
+   53        616         89        99        7021       7120
+   54        621         21        34        7120       7154
+   55        627         43        58        7154       7212
+   39        511         14       198        7412       7510
+   42        524         39       399        8210       8509
+   43        537         78       233        8509       8642
+   44        545          6       101        8742       8743
+   45        566          9       256        8743       8899
+   46        574          1       199        8899       8998
+   49        586         30       341        9298       9539
+   50        590         61       192        9539       9631
+   61        660         10        34        9731       9765
+   62        664         23        36        9765       9801
 
 
-There are 110 blocks of main memory available in the system.
+There are 3 blocks of main memory available in the system.
 
-Event: T   Time: 10116
-Event: E   Time: 10416
-Event: T   Time: 10661
-Event: E   Time: 10961
-Event: E   Time: 11261
-Event: E   Time: 11561
-Event: T   Time: 11565
-Event: E   Time: 11865
-Event: E   Time: 12165
-Event: E   Time: 12465
-Event: T   Time: 12639
-Event: E   Time: 12939
-Event: E   Time: 13239
-Event: T   Time: 13309
-Event: T   Time: 13450
-Event: T   Time: 13742
-Event: T   Time: 13803
-Event: T   Time: 13842
-Event: T   Time: 13852
-Event: E   Time: 13952
-Event: E   Time: 14252
-Event: T   Time: 14304
-Event: E   Time: 14404
-Event: E   Time: 14704
-Event: T   Time: 14817
-Event: T   Time: 14891
-Event: E   Time: 14991
-Event: T   Time: 15120
-Event: T   Time: 15164
-Event: E   Time: 15264
-Event: E   Time: 15564
-Event: E   Time: 15864
-Event: E   Time: 16164
-Event: T   Time: 16165
-Event: T   Time: 16257
-Event: T   Time: 16319
-Event: E   Time: 16419
-Event: T   Time: 16462
-Event: E   Time: 16562
-Event: T   Time: 16595
-Event: T   Time: 16597
-Event: T   Time: 16666
-Event: T   Time: 16765
-Event: T   Time: 16799
-Event: E   Time: 16899
-Event: E   Time: 16999
-Event: E   Time: 17299
-Event: T   Time: 17503
-Event: E   Time: 17803
-Event: T   Time: 17937
-Event: E   Time: 18237
-Event: E   Time: 18537
-Event: E   Time: 18837
-Event: T   Time: 18970
-Event: E   Time: 19070
-Event: T   Time: 19124
-Event: T   Time: 19181
-Event: E   Time: 19281
-Event: T   Time: 19284
-Event: T   Time: 19316
-Event: T   Time: 19328
-Event: T   Time: 19347
-Event: E   Time: 19647
-Event: T   Time: 19677
-Event: E   Time: 19777
-Event: E   Time: 19877
-Event: T   Time: 19878
-Event: T   Time: 19899
-Event: T   Time: 19912
-Event: T   Time: 19913
-Event: E   Time: 20213
-Event: E   Time: 20513
-Event: T   Time: 20514
-Event: E   Time: 20814
-Event: T   Time: 20906
-Event: E   Time: 21206
-Event: E   Time: 21506
-Event: T   Time: 21529
+Event: T   Time: 10008
+Event: T   Time: 10077
+Event: E   Time: 10377
+Event: T   Time: 10677
+Event: T   Time: 10749
+Event: E   Time: 11049
+Event: T   Time: 11053
+Event: E   Time: 11353
+Event: E   Time: 11653
+Event: E   Time: 11953
+Event: E   Time: 12253
+Event: E   Time: 12553
+Event: T   Time: 12727
+Event: E   Time: 13027
+Event: E   Time: 13327
+Event: T   Time: 13328
+Event: T   Time: 13398
+Event: T   Time: 13690
+Event: T   Time: 13751
+Event: T   Time: 13790
+Event: T   Time: 13800
+Event: E   Time: 13900
+Event: E   Time: 14200
+Event: T   Time: 14252
+Event: E   Time: 14352
+Event: E   Time: 14652
+Event: T   Time: 14765
+Event: T   Time: 14839
+Event: E   Time: 14939
+Event: T   Time: 15068
+Event: T   Time: 15112
+Event: E   Time: 15212
+Event: E   Time: 15512
+Event: E   Time: 15812
+Event: E   Time: 16112
+Event: T   Time: 16113
+Event: T   Time: 16205
+Event: T   Time: 16267
+Event: E   Time: 16367
+Event: T   Time: 16410
+Event: E   Time: 16510
+Event: T   Time: 16543
+Event: T   Time: 16545
+Event: T   Time: 16614
+Event: T   Time: 16713
+Event: T   Time: 16747
+Event: E   Time: 16847
+Event: E   Time: 16947
+Event: E   Time: 17247
+Event: T   Time: 17451
+Event: E   Time: 17751
+Event: T   Time: 17885
+Event: E   Time: 18185
+Event: E   Time: 18485
+Event: E   Time: 18785
+Event: T   Time: 18918
+Event: E   Time: 19218
+Event: E   Time: 19318
+Event: T   Time: 19372
+Event: T   Time: 19429
+Event: E   Time: 19529
+Event: T   Time: 19532
+Event: T   Time: 19564
+Event: T   Time: 19576
+Event: T   Time: 19595
+Event: E   Time: 19895
+Event: T   Time: 19925
+Event: T   Time: 19926
+Event: E   Time: 20026
+Event: E   Time: 20126
+Event: T   Time: 20127
+Event: T   Time: 20148
+Event: T   Time: 20161
+Event: E   Time: 20461
+Event: E   Time: 20761
+Event: T   Time: 20762
+Event: E   Time: 21062
+Event: T   Time: 21154
+Event: E   Time: 21454
+Event: T   Time: 21477
 Event: D   Time: 22000
 
 ************************************************************
@@ -1186,7 +1155,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-The CPU is idle.
+THE CPU IS IDLE!
 
 
 The contents of the FINISHED LIST
@@ -1205,94 +1174,91 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
-   20        278        102        47         902       1072
-   23        309        100        99        1072       1171
-   21        300        123        43         976       1208
-   19        271        232        90         894       1282
-   13        188          9        66         777       1324
-   24        313        179        23        1324       1347
-   15        195          1        70         783       1411
-   25        351        342        59        1411       1470
-   26        401         58       101        1470       1771
-   27        404        125       200        1570       2071
-   28        410          3       330        1670       2401
-   30        423         20       124        1871       2725
-   31        450         70       230        2071       2855
-   29        417        340       999        1771       3454
-   32        467        184       700        3454       4154
-   33        470        500       701        4154       4855
-   35        480        432       150        4955       5505
-   36        499         37       203        5055       6808
-   51        602         56        88        6808       6896
-   34        474         19       401        4855       6897
-   52        611        105        72        6897       6969
-   53        616         89        99        6969       7068
-   54        621         21        34        7068       7102
-   55        627         43        58        7102       7160
-   37        508         89       204        5505       7364
-   57        635         91       169        7364       7547
-   42        524         39       399        5905       8333
-   43        537         78       233        6005       8466
-   61        660         10        34        8566       8600
-   62        664         23        36        8600       8636
-   44        545          6       101        6105       8737
-   45        566          9       256        6205       8893
-   46        574          1       199        6305       8992
-   49        586         30       341        6505       9533
-   50        590         61       192        6605       9725
-   56        632         16       107        7160       9732
-   39        511         14       198        5605       9816
-   58        641         89       400        7547      10116
-   41        519         43       472        5805      10661
-   47        580         20       404        6405      11565
-   60        653        123       574        8466      12639
-   59        649         37       770        7647      13309
-   40        516         17      1001        5705      13450
-   63        670         24       992        8636      13742
-   64        674         49       761        9533      13803
-   65        678        501        39       13803      13842
-   66        681        398        10       13842      13852
-   67        690        302       452       13852      14304
-   68        694        511       513       14304      14817
-   71        734         30        74       14817      14891
-   72        743         51       229       14891      15120
-   73        746        499        44       15120      15164
-   74        752        509      1001       15164      16165
-   75        773         34        92       16165      16257
-   76        881         34        62       16257      16319
-   78        891         23        43       16419      16462
-   80        934         11        33       16562      16595
-   81        939          3         2       16595      16597
-   83        969         12        69       16597      16666
-   84        972         44        99       16666      16765
-   85        999         95        34       16765      16799
-   79        914         41       304       16462      17503
-   87       1031         83       234       16899      17937
-   86       1004        168       833       16799      18970
-   90       1036         12        54       19070      19124
-   91       1039         10        57       19124      19181
-   93       1048          2         3       19281      19284
-   94       1054          2        32       19284      19316
-   95       7072         32        12       19316      19328
-   96       7179         20        19       19328      19347
-   89       1034        423       130       18970      19677
-   99       7463         10         1       19877      19878
-  101       7500         40        21       19878      19899
-  102       7635         12        13       19899      19912
-   92       1045          4       101       19181      19913
-   98       7423         22       101       19777      20514
-   97       7400         54       492       19677      20906
-   77        886         33      2523       16319      21529
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
+   17        260         25       100         956       1056
+   19        271        232        90        1056       1146
+   20        278        102        47        1146       1193
+   21        300        123        43        1193       1236
+   22        306          1         1        1236       1237
+   23        309        100        99        1237       1336
+   24        313        179        23        1336       1359
+   25        351        342        59        1359       1418
+   26        401         58       101        1718       1719
+   27        404        125       200        1719       1819
+   28        410          3       330        2119       2349
+   30        423         20       124        2649       2673
+   31        450         70       230        2673       2803
+   29        417        340       999        3103       3402
+   32        467        184       700        3802       4102
+   33        470        500       701        4802       4803
+   35        480        432       150        5403       5453
+   36        499         37       203        5453       5556
+   51        602         56        88        6756       6844
+   34        474         19       401        6844       6845
+   37        508         89       204        6845       6949
+   52        611        105        72        6949       7021
+   53        616         89        99        7021       7120
+   54        621         21        34        7120       7154
+   55        627         43        58        7154       7212
+   39        511         14       198        7412       7510
+   42        524         39       399        8210       8509
+   43        537         78       233        8509       8642
+   44        545          6       101        8742       8743
+   45        566          9       256        8743       8899
+   46        574          1       199        8899       8998
+   49        586         30       341        9298       9539
+   50        590         61       192        9539       9631
+   61        660         10        34        9731       9765
+   62        664         23        36        9765       9801
+   56        632         16       107       10001      10008
+   57        635         91       169       10008      10077
+   58        641         89       400       10377      10677
+   41        519         43       472       10677      10749
+   47        580         20       404       11049      11053
+   60        653        123       574       12553      12727
+   40        516         17      1001       13327      13328
+   59        649         37       770       13328      13398
+   63        670         24       992       13398      13690
+   64        674         49       761       13690      13751
+   65        678        501        39       13751      13790
+   66        681        398        10       13790      13800
+   67        690        302       452       14200      14252
+   68        694        511       513       14652      14765
+   71        734         30        74       14765      14839
+   72        743         51       229       14939      15068
+   73        746        499        44       15068      15112
+   74        752        509      1001       16112      16113
+   75        773         34        92       16113      16205
+   76        881         34        62       16205      16267
+   78        891         23        43       16367      16410
+   80        934         11        33       16510      16543
+   81        939          3         2       16543      16545
+   83        969         12        69       16545      16614
+   84        972         44        99       16614      16713
+   85        999         95        34       16713      16747
+   79        914         41       304       17247      17451
+   87       1031         83       234       17751      17885
+   86       1004        168       833       18785      18918
+   90       1036         12        54       19318      19372
+   91       1039         10        57       19372      19429
+   93       1048          2         3       19529      19532
+   94       1054          2        32       19532      19564
+   95       7072         32        12       19564      19576
+   96       7179         20        19       19576      19595
+   89       1034        423       130       19895      19925
+   92       1045          4       101       19925      19926
+   99       7463         10         1       20126      20127
+  101       7500         40        21       20127      20148
+  102       7635         12        13       20148      20161
+   98       7423         22       101       20761      20762
+   97       7400         54       492       21062      21154
+   77        886         33      2523       21454      21477
 
 
 There are 512 blocks of main memory available in the system.
-
-Event: A   Time: 22001
-Event: T   Time: 22002
 
 The contents of the FINAL FINISHED LIST
 ---------------------------------------
@@ -1310,94 +1276,85 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    10        161        499        40         568        608
    11        170        401        79         608        687
    12        181         11        90         687        777
-   17        260         25       100         794        894
-   14        190          5        20         780        922
-   16        201         69        23         789        960
-   22        306          1         1         982        983
-   20        278        102        47         902       1072
-   23        309        100        99        1072       1171
-   21        300        123        43         976       1208
-   19        271        232        90         894       1282
-   13        188          9        66         777       1324
-   24        313        179        23        1324       1347
-   15        195          1        70         783       1411
-   25        351        342        59        1411       1470
-   26        401         58       101        1470       1771
-   27        404        125       200        1570       2071
-   28        410          3       330        1670       2401
-   30        423         20       124        1871       2725
-   31        450         70       230        2071       2855
-   29        417        340       999        1771       3454
-   32        467        184       700        3454       4154
-   33        470        500       701        4154       4855
-   35        480        432       150        4955       5505
-   36        499         37       203        5055       6808
-   51        602         56        88        6808       6896
-   34        474         19       401        4855       6897
-   52        611        105        72        6897       6969
-   53        616         89        99        6969       7068
-   54        621         21        34        7068       7102
-   55        627         43        58        7102       7160
-   37        508         89       204        5505       7364
-   57        635         91       169        7364       7547
-   42        524         39       399        5905       8333
-   43        537         78       233        6005       8466
-   61        660         10        34        8566       8600
-   62        664         23        36        8600       8636
-   44        545          6       101        6105       8737
-   45        566          9       256        6205       8893
-   46        574          1       199        6305       8992
-   49        586         30       341        6505       9533
-   50        590         61       192        6605       9725
-   56        632         16       107        7160       9732
-   39        511         14       198        5605       9816
-   58        641         89       400        7547      10116
-   41        519         43       472        5805      10661
-   47        580         20       404        6405      11565
-   60        653        123       574        8466      12639
-   59        649         37       770        7647      13309
-   40        516         17      1001        5705      13450
-   63        670         24       992        8636      13742
-   64        674         49       761        9533      13803
-   65        678        501        39       13803      13842
-   66        681        398        10       13842      13852
-   67        690        302       452       13852      14304
-   68        694        511       513       14304      14817
-   71        734         30        74       14817      14891
-   72        743         51       229       14891      15120
-   73        746        499        44       15120      15164
-   74        752        509      1001       15164      16165
-   75        773         34        92       16165      16257
-   76        881         34        62       16257      16319
-   78        891         23        43       16419      16462
-   80        934         11        33       16562      16595
-   81        939          3         2       16595      16597
-   83        969         12        69       16597      16666
-   84        972         44        99       16666      16765
-   85        999         95        34       16765      16799
-   79        914         41       304       16462      17503
-   87       1031         83       234       16899      17937
-   86       1004        168       833       16799      18970
-   90       1036         12        54       19070      19124
-   91       1039         10        57       19124      19181
-   93       1048          2         3       19281      19284
-   94       1054          2        32       19284      19316
-   95       7072         32        12       19316      19328
-   96       7179         20        19       19328      19347
-   89       1034        423       130       18970      19677
-   99       7463         10         1       19877      19878
-  101       7500         40        21       19878      19899
-  102       7635         12        13       19899      19912
-   92       1045          4       101       19181      19913
-   98       7423         22       101       19777      20514
-   97       7400         54       492       19677      20906
-   77        886         33      2523       16319      21529
-  103      22001          1         1       22001      22002
-
-
-The Average Turnaround Time for the simulation was 8538.365 units.
-
-The Average Job Scheduling Wait Time for the simulation was 7316.731 units.
-
-There are 512 blocks of main memory available in the system.
-
+   13        188          9        66         777        843
+   14        190          5        20         843        863
+   15        195          1        70         863        933
+   16        201         69        23         933        956
+   17        260         25       100         956       1056
+   19        271        232        90        1056       1146
+   20        278        102        47        1146       1193
+   21        300        123        43        1193       1236
+   22        306          1         1        1236       1237
+   23        309        100        99        1237       1336
+   24        313        179        23        1336       1359
+   25        351        342        59        1359       1418
+   26        401         58       101        1718       1719
+   27        404        125       200        1719       1819
+   28        410          3       330        2119       2349
+   30        423         20       124        2649       2673
+   31        450         70       230        2673       2803
+   29        417        340       999        3103       3402
+   32        467        184       700        3802       4102
+   33        470        500       701        4802       4803
+   35        480        432       150        5403       5453
+   36        499         37       203        5453       5556
+   51        602         56        88        6756       6844
+   34        474         19       401        6844       6845
+   37        508         89       204        6845       6949
+   52        611        105        72        6949       7021
+   53        616         89        99        7021       7120
+   54        621         21        34        7120       7154
+   55        627         43        58        7154       7212
+   39        511         14       198        7412       7510
+   42        524         39       399        8210       8509
+   43        537         78       233        8509       8642
+   44        545          6       101        8742       8743
+   45        566          9       256        8743       8899
+   46        574          1       199        8899       8998
+   49        586         30       341        9298       9539
+   50        590         61       192        9539       9631
+   61        660         10        34        9731       9765
+   62        664         23        36        9765       9801
+   56        632         16       107       10001      10008
+   57        635         91       169       10008      10077
+   58        641         89       400       10377      10677
+   41        519         43       472       10677      10749
+   47        580         20       404       11049      11053
+   60        653        123       574       12553      12727
+   40        516         17      1001       13327      13328
+   59        649         37       770       13328      13398
+   63        670         24       992       13398      13690
+   64        674         49       761       13690      13751
+   65        678        501        39       13751      13790
+   66        681        398        10       13790      13800
+   67        690        302       452       14200      14252
+   68        694        511       513       14652      14765
+   71        734         30        74       14765      14839
+   72        743         51       229       14939      15068
+   73        746        499        44       15068      15112
+   74        752        509      1001       16112      16113
+   75        773         34        92       16113      16205
+   76        881         34        62       16205      16267
+   78        891         23        43       16367      16410
+   80        934         11        33       16510      16543
+   81        939          3         2       16543      16545
+   83        969         12        69       16545      16614
+   84        972         44        99       16614      16713
+   85        999         95        34       16713      16747
+   79        914         41       304       17247      17451
+   87       1031         83       234       17751      17885
+   86       1004        168       833       18785      18918
+   90       1036         12        54       19318      19372
+   91       1039         10        57       19372      19429
+   93       1048          2         3       19529      19532
+   94       1054          2        32       19532      19564
+   95       7072         32        12       19564      19576
+   96       7179         20        19       19576      19595
+   89       1034        423       130       19895      19925
+   92       1045          4       101       19925      19926
+   99       7463         10         1       20126      20127
+  101       7500         40        21       20127      20148
+  102       7635         12        13       20148      20161
+   98       7423         22       101       20761      20762
+   97       7400         54       492       21062      21154
+   77        886         33      2523       21454      21477
