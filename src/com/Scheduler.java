@@ -30,7 +30,7 @@ public class Scheduler {
 		
 		 //queue of events from command line
 		Queue<Event> externalQ = new ConcurrentLinkedQueue<Event>();
-		Queue<Event> internalQ = new ConcurrentLinkedQueue<Event>();
+//		Queue<Event> internalQ = new ConcurrentLinkedQueue<Event>();
 		
 		Scanner sc = new Scanner(System.in);
 		String lineIn;
@@ -66,80 +66,78 @@ public class Scheduler {
 		Event inEvent = null;
 		
 		//SCHEDULING LOOP
-		while(externalQ.size() > 0 || internalQ.size() > 0 || readyQ1.size() > 0
+		while(exEvent != null || externalQ.size() > 0 || inEvent != null || readyQ1.size() > 0
 				|| readyQ2.size() > 0 || jobSchedulingQ.size() > 0 || onCPU != null) {
 			
+			if(onCPU != null) {
+				onCPU.tick();
+				//if job is done
+				if(onCPU.getJob().getRemainingTime() <= 0) {
+					//generate T event
+					inEvent = new Event(EventType.T, systemTime, onCPU.getJob());
+//					internalQ.add(e);
+					usedMemory -=  onCPU.getJob().getMemory();
+					
+				//if quantum expired
+				} else if(onCPU.getQuantum() <= 0) {
+					//generate E event
+					inEvent = new Event(EventType.E, systemTime, onCPU.getJob());
+//					internalQ.add(e);
+				}
+			}
 			
 			//handle internals
-			if(internalQ.size() > 0) {
-				inEvent = internalQ.poll();
+			if(inEvent != null) {
+//				inEvent = internalQ.poll();
 				handler.eventOccurs(inEvent, systemTime);
 
 				if(inEvent.getType().equals(EventType.T)) {
 					onCPU = handler.handleEventT(inEvent, finishedJobs, readyQ1, readyQ2);
 //					onCPU = handler.handleEventT2(inEvent, finishedJobs, readyQ1, readyQ2, onCPU, systemTime);
+					inEvent = null;
 				} else if(inEvent.getType().equals(EventType.E)) {
 					onCPU = handler.handleEventE(inEvent, readyQ1, readyQ2);
 //					onCPU = handler.handleEventE2(inEvent, readyQ1, readyQ2, onCPU, systemTime);
+					inEvent = null;
 				}
-				
-			} else {
-				// handle (external) events
-				if(exEvent != null && systemTime == exEvent.getTime()) {
-					handler.eventOccurs(exEvent, systemTime);
-					// Event A
-					if (exEvent.getType().equals(EventType.A)) {
-						handler.handleEventA(exEvent, MAX_MEMORY, jobSchedulingQ);
-							
-					// Event D
-					} else if (exEvent.getType().equals(EventType.D)) {
-						handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, ioWaitQ, onCPU, finishedJobs);
-					} 
+			}
+			
+			// handle (external) events
+			if(exEvent != null && systemTime == exEvent.getTime()) {
+				handler.eventOccurs(exEvent, systemTime);
+				// Event A
+				if (exEvent.getType().equals(EventType.A)) {
+					handler.handleEventA(exEvent, MAX_MEMORY, jobSchedulingQ);
+						
+				// Event D
+				} else if (exEvent.getType().equals(EventType.D)) {
+					handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, ioWaitQ, onCPU, finishedJobs);
+				} 
 //					else if (exEvent.getType().equals(EventType.F)) {
 //						handler.handleEventF(finishedJobs);
 //					}
-					
-					//get next event
-					exEvent = externalQ.poll();
-				}
 				
-				//handle queues
-				if(jobSchedulingQ.size() > 0) {
-					if(jobSchedulingQ.peek().getMemory() <= (MAX_MEMORY - usedMemory)) {
-						usedMemory += jobSchedulingQ.peek().getMemory();
-						readyQ1.add(jobSchedulingQ.poll());
-					}
-				}
-				
-				//if there is nothing on the CPU
-				if(onCPU == null) { //should only happen until first job arrives
-					//if there is something on the ready Q
-					onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
-				}
-				if(onCPU != null) {
-					//update the process timer (runtime and quantum)
-					onCPU.tick();
-					
-					//if job is done
-					if(onCPU.getJob().getRemainingTime() <= 0) {
-						//generate T event
-						Event e = new Event(EventType.T, systemTime+1, onCPU.getJob());
-						internalQ.add(e);
-						usedMemory -=  onCPU.getJob().getMemory();
-						//take process off CPU
-//						onCPU = null;
-					//if quantum expired
-					} else if(onCPU.getQuantum() <= 0) {
-						//generate E event
-						Event e = new Event(EventType.E, systemTime+1, onCPU.getJob());
-						internalQ.add(e);
-						//take process off CPU
-//						onCPU = null;
-					}
-				}
-				
-				systemTime++;
+				//get next event
+				exEvent = externalQ.poll();
 			}
+			
+			//handle queues
+			if(jobSchedulingQ.size() > 0) {
+				if(jobSchedulingQ.peek().getMemory() <= (MAX_MEMORY - usedMemory)) {
+					usedMemory += jobSchedulingQ.peek().getMemory();
+					readyQ1.add(jobSchedulingQ.poll());
+				}
+			}
+			//if there is nothing on the CPU
+			if(onCPU == null) { //should only happen until first job arrives
+				//if there is something on the ready Q
+				onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
+			}
+//			
+//			if(onCPU != null) {
+//				onCPU.tick();
+//			}
+			systemTime++;
 		}
 		handler.handleEventEndSim(systemTime, finishedJobs);	
 	}

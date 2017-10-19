@@ -9,13 +9,13 @@ import com.model.Job;
 
 public class EventHandler {
 	public void eventOccurs(Event event, int systemTime) {
-//		System.out.print(systemTime + " -- ");
-		System.out.println("Event: " + event.getType().toString() + "   Time: " + event.getTime());
-//		if(event.getJob() != null) {
-//			System.out.println("\tJob ID: " + event.getJob().getId());
-//		} else {
-//			System.out.println();
-//		}
+		System.out.print(systemTime + " -- ");
+		System.out.print("Event: " + event.getType().toString() + "   Time: " + event.getTime());
+		if(event.getJob() != null) {
+			System.out.println("   Job ID: " + event.getJob().getId());
+		} else {
+			System.out.println();
+		}
 	}
 	
 	public void handleEventA(Event event, int MAX_MEMORY, Queue<Job> jobSchedulingQ) {
