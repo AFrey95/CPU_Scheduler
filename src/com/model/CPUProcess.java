@@ -6,8 +6,10 @@ public class CPUProcess {
 	
 	public CPUProcess(Job job, int quantum, int startTime) {
 		this.job = job;
-		this.job.setStartTime(startTime);
 		this.quantum = quantum;
+		if(this.job.getStartTime() == -1) {
+			this.job.setStartTime(startTime);
+		}
 	}
 	
 	public Job getJob() {

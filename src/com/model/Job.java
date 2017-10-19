@@ -8,6 +8,7 @@ public class Job {
 	int startTime;
 	int comTime;
 	int remainingTime;
+	int waitTime;
 	
 	public Job() {}
 	
@@ -16,9 +17,10 @@ public class Job {
 		this.arrivalTime = arrivalTime;
 		this.memory = memory;
 		this.runtime = runtime;
-		this.startTime = 0;
+		this.startTime = -1;
 		this.comTime = 0;
 		this.remainingTime = runtime;
+		this.waitTime = 0;
 	}
 	
 	public int getId() {
@@ -72,5 +74,9 @@ public class Job {
 
 	public void tick() {
 		this.remainingTime--;
+	}
+	
+	public void idle() {
+		waitTime++;
 	}
 }
