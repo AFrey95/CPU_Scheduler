@@ -137,32 +137,22 @@ public class EventHandler {
 		return on;
 	}
 
-	public void handleEventEndSim(int systemTime, List<Job> finishedJobs) {
+	public void handleEventEndSim(int systemTime, List<Job> finishedJobs, int usedMemory, int MAX_MEMORY) {
 		printList(finishedJobs, "Final Finished List");
-//		double average_TA = 0;
-//		double average_wait = 0;
-//		StringBuilder sb = new StringBuilder();
-//		
-//		sb.append("The contents of the FINAL FINISHED LIST\n")
-//		  .append("---------------------------------------\n\n");
-//		
-//		if(finishedJobs.size() > 0) {
-//			sb.append("Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time\n")
-//			  .append("-----  ---------  ---------  --------  ----------  ---------\n\n");
-//		}
-//		
-//		for(Job job : finishedJobs) {
-//			sb.append(job.getId() + "\t" + job.getArrivalTime() + "\t"
-//					+ job.getMemory() + "\t" + job.getRuntime() + "\t"
-//					+ job.getStartTime() + "\t" + job.getArrivalTime() + "\n\n");
-//			average_TA += (job.getComTime() - job.getArrivalTime());
-////			average_wait += (job.getStartTime())
-//		}
+		double ta_sum = 0;
+		double wait_sum = 0;
+		
+		for(Job job : finishedJobs) {
+			ta_sum += (job.getComTime() - job.getArrivalTime());
+			wait_sum += (job.getStartTime() - job.getArrivalTime());
+		}
 //		average_TA = average_TA/finishedJobs.size();
-//		
-//		sb.append("\nThe Average Turnaround Time for the simulation was " + average_TA + " units.\n\n");
-//
-//		System.out.println(sb.toString());
+//		average_wait = average_wait/finishedJobs.size();
+		
+		System.out.printf("\nThe Average Turnaround Time for the simulation was %.3f units.\n\n", ta_sum/finishedJobs.size());
+		System.out.printf("The Average Job Scheduling Wait Time for the simulation was %.3f units.\n\n", wait_sum/finishedJobs.size());
+		System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks of main memory available in the system.\n");
+
 	}
 	
 	public void handleEventF(List<Job> finishedJobs) {
@@ -228,7 +218,7 @@ public class EventHandler {
 //			int time = (onCPU.getQuantum() < onCPU.getJob().getRemainingTime()) ? onCPU.getQuantum() : onCPU.getJob().getRemainingTime(); 
 			System.out.printf("%7s  %10s  %19s\n\n\n", onCPU.getJob().getId(), onCPU.getJob().getStartTime(), onCPU.getJob().getRemainingTime());
 		} else {
-			System.out.println("THE CPU IS IDLE!\n\n");
+			System.out.println("The CPU is idle.\n\n");
 		}
 	}
 	

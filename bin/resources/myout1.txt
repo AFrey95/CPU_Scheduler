@@ -1153,7 +1153,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-THE CPU IS IDLE!
+The CPU is idle.
 
 
 The contents of the FINISHED LIST
@@ -1359,3 +1359,11 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    97       7400         54       492       19625      20854
    77        886         33      2523       16267      21477
   103      22001          1         1       22001      22002
+
+
+
+The Average Turnaround Time for the simulation was 8538.086021505376 units.
+
+The Average Job Scheduling Wait Time for the simulation was 7530.860215053764 units.
+
+There are 512 blocks of main memory available in the system.

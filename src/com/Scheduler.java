@@ -124,12 +124,12 @@ public class Scheduler {
 				}
 			}
 			
-			handler.idle(readyQ1);
-			handler.idle(readyQ2);
+//			handler.idle(readyQ1);
+//			handler.idle(readyQ2);
 			
 			systemTime++;
 		}
-		handler.handleEventEndSim(systemTime, finishedJobs);	
+		handler.handleEventEndSim(systemTime, finishedJobs, usedMemory, MAX_MEMORY);	
 	}
 }
 			

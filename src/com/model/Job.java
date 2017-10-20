@@ -71,6 +71,14 @@ public class Job {
 	public void setRemainingTime(int remainingTime) {
 		this.remainingTime = remainingTime;
 	}
+	
+	public int getWaitTime() {
+		return waitTime;
+	}
+
+	public void setWaitTime(int waitTime) {
+		this.waitTime = waitTime;
+	}
 
 	public void tick() {
 		this.remainingTime--;
