@@ -74,8 +74,10 @@ public class Scheduler {
 				|| readyQ2.size() > 0 || jobSchedulingQ.size() > 0 || ioWaitQ.size() > 0 || onCPU != null) {
 			
 			exEvent = ((externalQ.size() > 0) && (externalQ.peek().getTime() == systemTime)) ? externalQ.poll() : null;
-			
-//			handler.idleCheck(onCPU, systemTime);
+
+			if(systemTime == 1059) {
+				System.out.println("Debug");
+			}
 			
 			//CPU
 			if(onCPU != null) {
@@ -90,12 +92,16 @@ public class Scheduler {
 					//generate E event
 					inEvent = new Event(EventType.E, systemTime, onCPU.getJob());
 					
-				//if IO complete
+				
 				}
-				else if(ioWaitQ.size() > 0 && ioWaitQ.peek().getIoComTime() == systemTime) {
-					//generate C
-					inEvent = new Event(EventType.C, systemTime, onCPU.getJob());
+			}
+			//if io complete
+			if(ioWaitQ.size() > 0 && ioWaitQ.peek().getIoComTime() == systemTime) {
+				if(inEvent != null) {
+					System.out.println("---> WARNING!!! INTERNAL EVENT COLLISION: Type " + inEvent.getType().toString() + " and Type C!");
 				}
+				//generate C
+				inEvent = new Event(EventType.C, systemTime, null);
 			}
 			
 			if(inEvent != null) {
