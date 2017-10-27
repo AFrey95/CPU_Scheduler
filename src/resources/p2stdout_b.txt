@@ -1400,4 +1400,3 @@ The Average Turnaround Time for the simulation was 8538.365 units.
 The Average Job Scheduling Wait Time for the simulation was 7316.731 units.
 
 There are 512 blocks of main memory available in the system.
-

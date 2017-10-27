@@ -15,10 +15,10 @@ public class Event {
 		this.ioTime = 0;
 	}
 	
-//	public Event(EventType type, int time, int ioTime) {
+//	public Event(EventType type, int time, int ioBurstTime) {
 //		this.type = type;
 //		this.time = time;
-//		this.ioTime = ioTime;
+//		this.ioTime = ioBurstTime;
 //		this.job = null;
 //	}
 	

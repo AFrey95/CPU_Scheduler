@@ -15,17 +15,17 @@ class WaitQTest {
 	@Test
 	void test() {
 		EventHandler handler = new EventHandler();
-		Queue<Job> ioWaitQ = new PriorityQueue<Job>(4, (a,b) -> a.getIoTime() - b.getIoTime());
+		Queue<Job> ioWaitQ = new PriorityQueue<Job>(4, (a,b) -> a.getIoBurstTime() - b.getIoBurstTime());
 		
 		Job j1 = new Job(1,1,1,1);
 		Job j2 = new Job(2,2,1,1);
 		Job j3 = new Job(3,3,1,1);
 		Job j4 = new Job(4,4,1,1);
 		
-		j1.setIoTime(10);
-		j2.setIoTime(100);
-		j3.setIoTime(500);
-		j4.setIoTime(1);
+		j1.setIoBurstTime(10);
+		j2.setIoBurstTime(100);
+		j3.setIoBurstTime(500);
+		j4.setIoBurstTime(1);
 		
 		ioWaitQ.add(j1);
 		ioWaitQ.add(j2);

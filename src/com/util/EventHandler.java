@@ -57,7 +57,7 @@ public class EventHandler {
 		printQueue(readyQ2, "Second Level Ready Queue");
 		
 		//IO Wait Queue
-		printQueue(ioWaitQ, "I/O Wait Queue");
+		printIoQueue(ioWaitQ, "I/O Wait Queue");
 		
 		//CPU
 		printCPU(onCPU);
@@ -116,12 +116,12 @@ public class EventHandler {
 			//put a process on the CPU
 			on = new CPUProcess(readyQ1.poll(), 100, time);
 			System.out.print("[readyQ1] --> [Job " + on.getJob().getId() 
-							+ "(r: " + on.getJob().getRemainingTime()
+							+ "(r: " + on.getJob().getBurstTimeLeft()
 							+ ", q: " + on.getQuantum() + ")] --> ");
 		} else if(readyQ2.size() > 0) {
 			on = new CPUProcess(readyQ2.poll(), 300, time);
 			System.out.print("[readyQ2] --> [Job " + on.getJob().getId()
-					+ "(r: " + on.getJob().getRemainingTime()
+					+ "(r: " + on.getJob().getBurstTimeLeft()
 					+ ", q: " + on.getQuantum() + ")] --> ");
 		} else {
 			on = null;
@@ -130,7 +130,7 @@ public class EventHandler {
 		
 		if(off != null) {
 			System.out.print(" --> [Job " + off.getJob().getId() + "] --> ");
-			if(off.getJob().getRemainingTime() == 0) {
+			if(off.getJob().getBurstTimeLeft() == 0) {
 				System.out.println("[Finished List]");
 			} else {
 				System.out.println("[readyQ2]");
@@ -179,6 +179,26 @@ public class EventHandler {
 		}
 	}
 	
+	public void printIoQueue(Queue<Job> jobQ, String name) {
+		System.out.println("The contents of the " + name.toUpperCase());
+		  System.out.print("--------------------");
+		for(int i = 0; i < name.length(); i++) System.out.print("-");
+		System.out.println("\n");
+		if(jobQ.size() > 0) {
+			System.out.println("Job #  Arr. Time  Mem. Req.  Run Time  IO Start Time  IO Burst  Comp. Time");
+			System.out.println("-----  ---------  ---------  --------  -------------  --------  ----------\n");
+			
+			for(Job job : jobQ) {
+				System.out.printf("%5s  %9s  %9s  %8s  %13s  %8s  %10s\n", 
+						job.getId(), job.getArrivalTime(), job.getMemory(), job.getRuntime(),
+						job.getIoStartTime(), job.getIoBurstTime(), job.getIoComTime());
+			}
+			System.out.println("\n");
+		} else {
+			System.out.println("The " + name + " is empty.\n\n");
+		}
+	}
+	
 	public void printList(List<Job> jobList, String name) {
 		System.out.println("The contents of the " + name.toUpperCase());
 		  System.out.print("--------------------");
@@ -201,22 +221,9 @@ public class EventHandler {
 		System.out.println("-------  ----------  -------------------\n");
 		if(onCPU != null) {
 //			int time = (onCPU.getQuantum() < onCPU.getJob().getRemainingTime()) ? onCPU.getQuantum() : onCPU.getJob().getRemainingTime(); 
-			System.out.printf("%7s  %10s  %19s\n\n\n", onCPU.getJob().getId(), onCPU.getJob().getStartTime(), onCPU.getJob().getRemainingTime());
+			System.out.printf("%7s  %10s  %19s\n\n\n", onCPU.getJob().getId(), onCPU.getJob().getStartTime(), onCPU.getJob().getBurstTimeLeft());
 		} else {
 			System.out.println("The CPU is idle.\n\n");
-		}
-	}
-	
-	public void idle(Queue<Job> jobQ) {
-		for(Job job : jobQ) {
-			job.idle();
-		}
-		
-	}
-
-	public void ioWait(Queue<Job> ioWaitQ) {
-		for(Job job: ioWaitQ) {
-			job.ioWait();
 		}
 	}
 

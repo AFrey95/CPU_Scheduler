@@ -25,7 +25,7 @@ public class Scheduler {
 		Queue<Job> jobSchedulingQ = new ConcurrentLinkedQueue<Job>();
 		Queue<Job> readyQ1 = new ConcurrentLinkedQueue<Job>();
 		Queue<Job> readyQ2 = new ConcurrentLinkedQueue<Job>();
-		Queue<Job> ioWaitQ = new PriorityQueue<Job>(4, (a,b) -> a.getIoTime() - b.getIoTime());
+		Queue<Job> ioWaitQ = new PriorityQueue<Job>(4, (a,b) -> a.getIoComTime() - b.getIoComTime());
 		List<Job> finishedJobs = new ArrayList<Job>();
 		CPUProcess onCPU = null;
 		
@@ -80,9 +80,8 @@ public class Scheduler {
 			//CPU
 			if(onCPU != null) {
 				onCPU.tick();
-				handler.ioWait(ioWaitQ);
 				//if job is done
-				if(onCPU.getJob().getRemainingTime() <= 0) {
+				if(onCPU.getJob().getBurstTimeLeft() <= 0) {
 					//generate T event
 					inEvent = new Event(EventType.T, systemTime, onCPU.getJob());
 					
@@ -93,10 +92,10 @@ public class Scheduler {
 					
 				//if IO complete
 				}
-//				else if(ioWaitQ.size() > 0 && ioWaitQ.peek().getIoTime() <= 0) {
-//					//generate C
-//					inEvent = new Event(EventType.C, systemTime, onCPU.getJob());
-//				}
+				else if(ioWaitQ.size() > 0 && ioWaitQ.peek().getIoComTime() == systemTime) {
+					//generate C
+					inEvent = new Event(EventType.C, systemTime, onCPU.getJob());
+				}
 			}
 			
 			if(inEvent != null) {
@@ -126,17 +125,18 @@ public class Scheduler {
 				handler.handleEventA(exEvent, MAX_MEMORY, jobSchedulingQ);
 			}
 			
-//			if(exEvent != null && exEvent.getType().equals(EventType.I)) {
-//				if(onCPU == null) {
-//					handler.schedule(jobSchedulingQ, readyQ1, usedMemory, MAX_MEMORY, systemTime);
-//					onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
-//				}
-//				
-//				Job job = onCPU.getJob();
-//				job.setIoTime(exEvent.getIoTime());
-//				ioWaitQ.add(job);
-//				onCPU = null;
-//			}
+			if(exEvent != null && exEvent.getType().equals(EventType.I)) {
+				handler.eventOccurs(exEvent, systemTime);
+				if(onCPU == null) {
+					handler.schedule(jobSchedulingQ, readyQ1, usedMemory, MAX_MEMORY, systemTime);
+					onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
+				}
+				
+				Job job = onCPU.getJob();
+				job.setIoTimes(exEvent.getIoTime(), systemTime);
+				ioWaitQ.add(job);
+				onCPU = null;
+			}
 			
 			usedMemory = handler.schedule(jobSchedulingQ, readyQ1, usedMemory, MAX_MEMORY, systemTime);
 			if(onCPU == null) {
@@ -148,8 +148,6 @@ public class Scheduler {
 				handler.handleEventD(systemTime, MAX_MEMORY, usedMemory, jobSchedulingQ, readyQ1, readyQ2, ioWaitQ, onCPU, finishedJobs);
 			
 			}
-			
-//			handler.idle(jobSchedulingQ);
 			
 			systemTime++;
 		}
