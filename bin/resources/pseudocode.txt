@@ -1,0 +1,92 @@
+externalQ = getInput();
+
+while(something to do) {
+	if(time for next external) {
+		exEvent = externalQ.poll();
+	}
+	
+	if(CPU not empty) {
+		update CPU quantum and job burst time
+		
+		if(Job burst time == 0) {
+			create T
+		}
+		else if(CPU quantum expired) {
+			create E
+		}
+		else if(Front of ioQ is done waiting) {
+			create C
+		}
+		
+	}
+	
+	if(there is a T) {
+		Set job complete time = now
+		Add job to finished list
+		free memory taken by job
+		take job off CPU
+	} 
+	else if(there is an E) {
+		put job in readyQ2
+		take job off CPU
+	}
+	else if(there is a C) {
+		move job from ioQ to readyQ1
+	}
+	
+	if(exEvent is an A) {
+		put job in jobSchedulingQ if possible (memory needed <= 512)
+	}
+	
+	if(exEvent is an I) {
+		if(CPU is empty) {
+			run schedule and load
+		}
+		
+		take job from CPU and put it in ioQ
+		take job off CPU
+	}
+	
+	run schedule {
+		if there is room in memory, move a job from schedulingQ to readyQ1
+	}
+	
+	if(CPU is empty) {
+		
+		load CPU {if readyQ1 is empty take from readyQ2, else take from readyQ1}
+	}
+	
+	if(exEvent is a D) {
+		print all the Qs and lists
+	}
+	
+	systemTime++;
+}
+		
+		
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

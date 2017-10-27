@@ -18,12 +18,17 @@ public class EventHandler {
 //		}
 	}
 	
-	public int schedule(Queue<Job> jobSchedulingQ, Queue<Job> readyQ1, int usedMemory, int MAX_MEMORY) {
-		if(jobSchedulingQ.size() > 0) {
-			if(jobSchedulingQ.peek().getMemory() <= (MAX_MEMORY - usedMemory)) {
-				usedMemory += jobSchedulingQ.peek().getMemory();
-				readyQ1.add(jobSchedulingQ.poll());
-			}
+	public int schedule(Queue<Job> jobSchedulingQ, Queue<Job> readyQ1, int usedMemory, int MAX_MEMORY, int systemTime) {
+		while(jobSchedulingQ.size() > 0 && jobSchedulingQ.peek().getMemory() <= (MAX_MEMORY - usedMemory)) {
+//			System.out.println("Scheduling...");
+//			usedMemory += jobSchedulingQ.peek().getMemory();
+//			readyQ1.add(jobSchedulingQ.poll());
+//			System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks of main memory available in the system.");
+			Job job = jobSchedulingQ.poll();
+			job.setTimeOffJSQ(systemTime);
+			usedMemory += job.getMemory();
+			readyQ1.add(job);
+			
 		}
 		return usedMemory;
 	}
@@ -138,45 +143,25 @@ public class EventHandler {
 	}
 
 	public void handleEventEndSim(int systemTime, List<Job> finishedJobs, int usedMemory, int MAX_MEMORY) {
+		System.out.println();
 		printList(finishedJobs, "Final Finished List");
 		double ta_sum = 0;
 		double wait_sum = 0;
 		
 		for(Job job : finishedJobs) {
 			ta_sum += (job.getComTime() - job.getArrivalTime());
-			wait_sum += (job.getStartTime() - job.getArrivalTime());
+			wait_sum += (job.getTimeOffJSQ() - job.getArrivalTime());
 		}
-//		average_TA = average_TA/finishedJobs.size();
-//		average_wait = average_wait/finishedJobs.size();
+		double average_TA = ta_sum/finishedJobs.size();
+		double average_wait = wait_sum/finishedJobs.size();
 		
-		System.out.printf("\nThe Average Turnaround Time for the simulation was %.3f units.\n\n", ta_sum/finishedJobs.size());
-		System.out.printf("The Average Job Scheduling Wait Time for the simulation was %.3f units.\n\n", wait_sum/finishedJobs.size());
+		System.out.printf("The Average Turnaround Time for the simulation was %.3f units.\n\n", average_TA);
+		System.out.printf("The Average Job Scheduling Wait Time for the simulation was %.3f units.\n\n", average_wait);
 		System.out.println("There are " + (MAX_MEMORY - usedMemory) + " blocks of main memory available in the system.\n");
 
 	}
 	
-	public void handleEventF(List<Job> finishedJobs) {
-		StringBuilder sb = new StringBuilder();
-		sb.append("The contents of the FINAL FINISHED LIST\n")
-		  .append("---------------------------------------\n\n");
-		
-		if(finishedJobs.size() > 0) {
-			sb.append("Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time\n")
-			  .append("-----  ---------  ---------  --------  ----------  ---------");
-		} else {
-			sb.append("The Finished List is empty.\n\n");
-		}
-		
-		for(Job job : finishedJobs) {
-			sb.append(job.getId() + "\t" + job.getArrivalTime() + "\t"
-					+ job.getMemory() + "\t" + job.getRuntime() + "\t"
-					+ job.getStartTime() + "\t" + job.getArrivalTime() + "\n\n");
-		}
-		
-		System.out.println(sb.toString());
-	}
-	
-	private void printQueue(Queue<Job> jobQ, String name) {
+	public void printQueue(Queue<Job> jobQ, String name) {
 		System.out.println("The contents of the " + name.toUpperCase());
 		  System.out.print("--------------------");
 		for(int i = 0; i < name.length(); i++) System.out.print("-");
@@ -194,7 +179,7 @@ public class EventHandler {
 		}
 	}
 	
-	private void printList(List<Job> jobList, String name) {
+	public void printList(List<Job> jobList, String name) {
 		System.out.println("The contents of the " + name.toUpperCase());
 		  System.out.print("--------------------");
 		for(int i = 0; i < name.length(); i++) System.out.print("-");
@@ -211,7 +196,7 @@ public class EventHandler {
 		}
 	}
 	
-	private void printCPU(CPUProcess onCPU) {
+	public void printCPU(CPUProcess onCPU) {
 		System.out.println("The CPU  Start Time  CPU burst time left");
 		System.out.println("-------  ----------  -------------------\n");
 		if(onCPU != null) {
@@ -225,6 +210,19 @@ public class EventHandler {
 	public void idle(Queue<Job> jobQ) {
 		for(Job job : jobQ) {
 			job.idle();
+		}
+		
+	}
+
+	public void ioWait(Queue<Job> ioWaitQ) {
+		for(Job job: ioWaitQ) {
+			job.ioWait();
+		}
+	}
+
+	public void idleCheck(CPUProcess onCPU, int systemTime) {
+		if(onCPU == null) {
+			System.out.println("THE CPU IS NULL!! TIME = " + systemTime);
 		}
 		
 	}

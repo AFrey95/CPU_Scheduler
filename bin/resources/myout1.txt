@@ -1260,6 +1260,7 @@ There are 512 blocks of main memory available in the system.
 
 Event: A   Time: 22001
 Event: T   Time: 22002
+
 The contents of the FINAL FINISHED LIST
 ---------------------------------------
 
@@ -1361,9 +1362,8 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
   103      22001          1         1       22001      22002
 
 
+The Average Turnaround Time for the simulation was 8538.086 units.
 
-The Average Turnaround Time for the simulation was 8538.086021505376 units.
-
-The Average Job Scheduling Wait Time for the simulation was 7530.860215053764 units.
+The Average Job Scheduling Wait Time for the simulation was 7344.376 units.
 
 There are 512 blocks of main memory available in the system.

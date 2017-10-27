@@ -9,6 +9,8 @@ public class Job {
 	int comTime;
 	int remainingTime;
 	int waitTime;
+	int ioTime;
+	int timeOffJSQ;
 	
 	public Job() {}
 	
@@ -21,6 +23,7 @@ public class Job {
 		this.comTime = 0;
 		this.remainingTime = runtime;
 		this.waitTime = 0;
+		this.ioTime = 0;
 	}
 	
 	public int getId() {
@@ -80,11 +83,32 @@ public class Job {
 		this.waitTime = waitTime;
 	}
 
+	public int getIoTime() {
+		return ioTime;
+	}
+
+	public void setIoTime(int ioTime) {
+		this.ioTime = ioTime;
+	}
+
+	public int getTimeOffJSQ() {
+		return timeOffJSQ;
+	}
+
+	public void setTimeOffJSQ(int timeOffJSQ) {
+		this.timeOffJSQ = timeOffJSQ;
+	}
+
 	public void tick() {
 		this.remainingTime--;
 	}
 	
 	public void idle() {
 		waitTime++;
+	}
+
+	public void ioWait() {
+		ioTime--;
+		
 	}
 }

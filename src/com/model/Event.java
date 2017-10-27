@@ -5,13 +5,22 @@ import com.util.EventType;
 public class Event {
 	EventType type;
 	int time;
+	int ioTime;
 	Job job;
 		
 	public Event(EventType type, int time, Job job) {
 		this.type = type;
 		this.time = time;
 		this.job = job;
+		this.ioTime = 0;
 	}
+	
+//	public Event(EventType type, int time, int ioTime) {
+//		this.type = type;
+//		this.time = time;
+//		this.ioTime = ioTime;
+//		this.job = null;
+//	}
 	
 	public EventType getType() {
 		return type;
@@ -31,4 +40,13 @@ public class Event {
 	public void setJob(Job job) {
 		this.job = job;
 	}
+
+	public int getIoTime() {
+		return ioTime;
+	}
+
+	public void setIoTime(int ioTime) {
+		this.ioTime = ioTime;
+	}
+	
 }
