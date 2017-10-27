@@ -74,10 +74,6 @@ public class Scheduler {
 				|| readyQ2.size() > 0 || jobSchedulingQ.size() > 0 || ioWaitQ.size() > 0 || onCPU != null) {
 			
 			exEvent = ((externalQ.size() > 0) && (externalQ.peek().getTime() == systemTime)) ? externalQ.poll() : null;
-
-			if(systemTime == 1059) {
-				System.out.println("Debug");
-			}
 			
 			//CPU
 			if(onCPU != null) {
@@ -129,12 +125,14 @@ public class Scheduler {
 			if(exEvent != null && exEvent.getType().equals(EventType.A)) {
 				handler.eventOccurs(exEvent, systemTime);
 				handler.handleEventA(exEvent, MAX_MEMORY, jobSchedulingQ);
+				
 			}
 			
 			if(exEvent != null && exEvent.getType().equals(EventType.I)) {
 				handler.eventOccurs(exEvent, systemTime);
+				handler.schedule(jobSchedulingQ, readyQ1, usedMemory, MAX_MEMORY, systemTime);
+				onCPU = handler.checkTryPrempt(readyQ1, readyQ2, onCPU);
 				if(onCPU == null) {
-					handler.schedule(jobSchedulingQ, readyQ1, usedMemory, MAX_MEMORY, systemTime);
 					onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
 				}
 				
@@ -145,6 +143,7 @@ public class Scheduler {
 			}
 			
 			usedMemory = handler.schedule(jobSchedulingQ, readyQ1, usedMemory, MAX_MEMORY, systemTime);
+			onCPU = handler.checkTryPrempt(readyQ1, readyQ2, onCPU);
 			if(onCPU == null) {
 				onCPU = handler.loadCPU(readyQ1, readyQ2, systemTime);
 			}

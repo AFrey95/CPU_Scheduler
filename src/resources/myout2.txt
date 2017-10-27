@@ -423,7 +423,6 @@ Event: A   Time: 1039
 Event: A   Time: 1045
 Event: A   Time: 1048
 Event: A   Time: 1054
-Debug
 Event: C   Time: 1059
 Event: I   Time: 1060
 Event: C   Time: 1062
@@ -686,10 +685,7 @@ Job #  Arr. Time  Mem. Req.  Run Time
 The contents of the FIRST LEVEL READY QUEUE
 -------------------------------------------
 
-Job #  Arr. Time  Mem. Req.  Run Time
------  ---------  ---------  --------
-
-   57        635         91       169
+The First Level Ready Queue is empty.
 
 
 The contents of the SECOND LEVEL READY QUEUE
@@ -709,6 +705,7 @@ Job #  Arr. Time  Mem. Req.  Run Time
    49        586         30       341
    50        590         61       192
    56        632         16       107
+   39        511         14       198
 
 
 The contents of the I/O WAIT QUEUE
@@ -720,7 +717,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     39        5605                   14
+     57        7364                    4
 
 
 The contents of the FINISHED LIST
@@ -772,10 +769,10 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
 
 There are 87 blocks of main memory available in the system.
 
-Event: T   Time: 7557
-Event: T   Time: 7631
+Event: T   Time: 7547
 Event: A   Time: 7635
-Event: E   Time: 7731
+Event: E   Time: 7647
+Event: E   Time: 7747
 Event: I   Time: 7807
 Event: D   Time: 7810
 
@@ -841,7 +838,6 @@ The contents of the SECOND LEVEL READY QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   41        519         43       472
    42        524         39       399
    43        537         78       233
    44        545          6       101
@@ -851,7 +847,9 @@ Job #  Arr. Time  Mem. Req.  Run Time
    49        586         30       341
    50        590         61       192
    56        632         16       107
+   39        511         14       198
    58        641         89       400
+   59        649         37       770
 
 
 The contents of the I/O WAIT QUEUE
@@ -860,13 +858,13 @@ The contents of the I/O WAIT QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time  IO Start Time  IO Burst  Comp. Time
 -----  ---------  ---------  --------  -------------  --------  ----------
 
-   59        649         37       770           7807       127        7934
+   40        516         17      1001           7807       127        7934
 
 
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     40        5705                  898
+     41        5805                  369
 
 
 The contents of the FINISHED LIST
@@ -914,27 +912,28 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    54        621         21        34        7068       7102
    55        627         43        58        7102       7160
    37        508         89       204        5505       7364
-   39        511         14       198        5605       7557
-   57        635         91       169        7364       7631
+   57        635         91       169        7364       7547
 
 
-There are 66 blocks of main memory available in the system.
+There are 52 blocks of main memory available in the system.
 
 Event: C   Time: 7934
-Event: E   Time: 8107
-Event: E   Time: 8207
-Event: E   Time: 8507
-Event: T   Time: 8806
-Event: T   Time: 8939
-Event: E   Time: 9039
-Event: T   Time: 9073
-Event: T   Time: 9109
-Event: E   Time: 9209
-Event: T   Time: 9210
-Event: T   Time: 9366
-Event: E   Time: 9466
-Event: T   Time: 9565
-Event: E   Time: 9865
+Event: E   Time: 8034
+Event: T   Time: 8333
+Event: T   Time: 8466
+Event: E   Time: 8566
+Event: T   Time: 8600
+Event: T   Time: 8636
+Event: E   Time: 8736
+Event: T   Time: 8737
+Event: T   Time: 8893
+Event: T   Time: 8992
+Event: E   Time: 9292
+Event: T   Time: 9533
+Event: E   Time: 9633
+Event: T   Time: 9725
+Event: T   Time: 9732
+Event: T   Time: 9816
 Event: D   Time: 10007
 
 ************************************************************
@@ -994,16 +993,13 @@ The contents of the SECOND LEVEL READY QUEUE
 Job #  Arr. Time  Mem. Req.  Run Time
 -----  ---------  ---------  --------
 
-   50        590         61       192
-   56        632         16       107
-   58        641         89       400
-   40        516         17      1001
    59        649         37       770
    41        519         43       472
+   40        516         17      1001
    60        653        123       574
    63        670         24       992
-   64        674         49       761
    47        580         20       404
+   64        674         49       761
 
 
 The contents of the I/O WAIT QUEUE
@@ -1015,7 +1011,7 @@ The I/O Wait Queue is empty.
 The CPU  Start Time  CPU burst time left
 -------  ----------  -------------------
 
-     49        6505                   99
+     58        7547                  109
 
 
 The contents of the FINISHED LIST
@@ -1063,35 +1059,36 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    54        621         21        34        7068       7102
    55        627         43        58        7102       7160
    37        508         89       204        5505       7364
-   39        511         14       198        5605       7557
-   57        635         91       169        7364       7631
-   42        524         39       399        5905       8806
-   43        537         78       233        6005       8939
-   61        660         10        34        9039       9073
-   62        664         23        36        9073       9109
-   44        545          6       101        6105       9210
-   45        566          9       256        6205       9366
-   46        574          1       199        6305       9565
+   57        635         91       169        7364       7547
+   42        524         39       399        5905       8333
+   43        537         78       233        6005       8466
+   61        660         10        34        8566       8600
+   62        664         23        36        8600       8636
+   44        545          6       101        6105       8737
+   45        566          9       256        6205       8893
+   46        574          1       199        6305       8992
+   49        586         30       341        6505       9533
+   50        590         61       192        6605       9725
+   56        632         16       107        7160       9732
+   39        511         14       198        5605       9816
 
 
-There are 3 blocks of main memory available in the system.
+There are 110 blocks of main memory available in the system.
 
-Event: T   Time: 10106
-Event: T   Time: 10198
-Event: T   Time: 10205
-Event: T   Time: 10505
-Event: E   Time: 10805
-Event: E   Time: 11105
-Event: T   Time: 11177
-Event: E   Time: 11477
-Event: E   Time: 11777
-Event: E   Time: 12077
-Event: T   Time: 12081
-Event: E   Time: 12381
-Event: T   Time: 12675
-Event: T   Time: 12849
-Event: E   Time: 13149
-Event: E   Time: 13449
+Event: T   Time: 10116
+Event: E   Time: 10416
+Event: T   Time: 10661
+Event: E   Time: 10961
+Event: E   Time: 11261
+Event: E   Time: 11561
+Event: T   Time: 11565
+Event: E   Time: 11865
+Event: E   Time: 12165
+Event: E   Time: 12465
+Event: T   Time: 12639
+Event: E   Time: 12939
+Event: E   Time: 13239
+Event: T   Time: 13309
 Event: T   Time: 13450
 Event: T   Time: 13742
 Event: T   Time: 13803
@@ -1237,26 +1234,26 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    54        621         21        34        7068       7102
    55        627         43        58        7102       7160
    37        508         89       204        5505       7364
-   39        511         14       198        5605       7557
-   57        635         91       169        7364       7631
-   42        524         39       399        5905       8806
-   43        537         78       233        6005       8939
-   61        660         10        34        9039       9073
-   62        664         23        36        9073       9109
-   44        545          6       101        6105       9210
-   45        566          9       256        6205       9366
-   46        574          1       199        6305       9565
-   49        586         30       341        6505      10106
-   50        590         61       192        6605      10198
-   56        632         16       107        7160      10205
-   58        641         89       400        7631      10505
-   41        519         43       472        5805      11177
-   47        580         20       404        6405      12081
-   59        649         37       770        7731      12675
-   60        653        123       574        8939      12849
+   57        635         91       169        7364       7547
+   42        524         39       399        5905       8333
+   43        537         78       233        6005       8466
+   61        660         10        34        8566       8600
+   62        664         23        36        8600       8636
+   44        545          6       101        6105       8737
+   45        566          9       256        6205       8893
+   46        574          1       199        6305       8992
+   49        586         30       341        6505       9533
+   50        590         61       192        6605       9725
+   56        632         16       107        7160       9732
+   39        511         14       198        5605       9816
+   58        641         89       400        7547      10116
+   41        519         43       472        5805      10661
+   47        580         20       404        6405      11565
+   60        653        123       574        8466      12639
+   59        649         37       770        7647      13309
    40        516         17      1001        5705      13450
-   63        670         24       992        9109      13742
-   64        674         49       761        9366      13803
+   63        670         24       992        8636      13742
+   64        674         49       761        9533      13803
    65        678        501        39       13803      13842
    66        681        398        10       13842      13852
    67        690        302       452       13852      14304
@@ -1342,26 +1339,26 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
    54        621         21        34        7068       7102
    55        627         43        58        7102       7160
    37        508         89       204        5505       7364
-   39        511         14       198        5605       7557
-   57        635         91       169        7364       7631
-   42        524         39       399        5905       8806
-   43        537         78       233        6005       8939
-   61        660         10        34        9039       9073
-   62        664         23        36        9073       9109
-   44        545          6       101        6105       9210
-   45        566          9       256        6205       9366
-   46        574          1       199        6305       9565
-   49        586         30       341        6505      10106
-   50        590         61       192        6605      10198
-   56        632         16       107        7160      10205
-   58        641         89       400        7631      10505
-   41        519         43       472        5805      11177
-   47        580         20       404        6405      12081
-   59        649         37       770        7731      12675
-   60        653        123       574        8939      12849
+   57        635         91       169        7364       7547
+   42        524         39       399        5905       8333
+   43        537         78       233        6005       8466
+   61        660         10        34        8566       8600
+   62        664         23        36        8600       8636
+   44        545          6       101        6105       8737
+   45        566          9       256        6205       8893
+   46        574          1       199        6305       8992
+   49        586         30       341        6505       9533
+   50        590         61       192        6605       9725
+   56        632         16       107        7160       9732
+   39        511         14       198        5605       9816
+   58        641         89       400        7547      10116
+   41        519         43       472        5805      10661
+   47        580         20       404        6405      11565
+   60        653        123       574        8466      12639
+   59        649         37       770        7647      13309
    40        516         17      1001        5705      13450
-   63        670         24       992        9109      13742
-   64        674         49       761        9366      13803
+   63        670         24       992        8636      13742
+   64        674         49       761        9533      13803
    65        678        501        39       13803      13842
    66        681        398        10       13842      13852
    67        690        302       452       13852      14304
@@ -1398,8 +1395,8 @@ Job #  Arr. Time  Mem. Req.  Run Time  Start Time  Com. Time
   103      22001          1         1       22001      22002
 
 
-The Average Turnaround Time for the simulation was 8578.710 units.
+The Average Turnaround Time for the simulation was 8538.366 units.
 
-The Average Job Scheduling Wait Time for the simulation was 7334.462 units.
+The Average Job Scheduling Wait Time for the simulation was 7316.731 units.
 
 There are 512 blocks of main memory available in the system.
