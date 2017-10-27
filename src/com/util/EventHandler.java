@@ -1,3 +1,21 @@
+/*******************************************************************************
+/
+/      filename:  com.util.EventHandler.java
+/
+/   description:  Utility class for handling events and job scheduling actions.
+/				 
+/        author:  Frey, Andrew
+/      login id:  FA_17_CPS356_26
+/
+/         class:  CPS 356
+/    instructor:  Perugini
+/    assignment:  Midterm Project
+/
+/      assigned:  October 12, 2017
+/           due:  October 27, 2017
+/
+******************************************************************************/
+
 package com.util;
 
 import java.util.List;
@@ -9,13 +27,7 @@ import com.model.Job;
 
 public class EventHandler {
 	public void eventOccurs(Event event, int systemTime) {
-//		System.out.print(systemTime + " -- ");
 		System.out.println("Event: " + event.getType().toString() + "   Time: " + event.getTime());
-//		if(event.getJob() != null) {
-//			System.out.println("   Job ID: " + event.getJob().getId());
-//		} else {
-//			System.out.println();
-//		}
 	}
 	
 	public int schedule(Queue<Job> jobSchedulingQ, Queue<Job> readyQ1, int usedMemory, int MAX_MEMORY, int systemTime) {
@@ -75,11 +87,6 @@ public class EventHandler {
 		return loadCPU(readyQ1, readyQ2, event.getTime());
 	}
 	
-//	public CPUProcess handleEventT(Event event, List<Job> finishedJobs, Queue<Job> readyQ1, Queue<Job>readyQ2, CPUProcess off) {
-//		event.getJob().setComTime(event.getTime());
-//		finishedJobs.add(event.getJob());
-//		return loadCPU(readyQ1, readyQ2, event.getTime(), off);
-//	}
 
 	/**
 	 * Production Version. Handle quantum expired. Puts job in readyQ2. Loads new job to CPU.
@@ -89,11 +96,6 @@ public class EventHandler {
 		readyQ2.add(event.getJob());
 		return loadCPU(readyQ1, readyQ2, event.getTime());
 	}
-	
-//	public CPUProcess handleEventE(Event event, Queue<Job> readyQ1, Queue<Job> readyQ2, CPUProcess off) {
-//		readyQ2.add(event.getJob());
-//		return loadCPU(readyQ1, readyQ2, event.getTime(), off);
-//	}
 	
 	public CPUProcess loadCPU(Queue<Job> readyQ1, Queue<Job> readyQ2, int time) {
 		if(readyQ1.size() > 0) {
@@ -114,38 +116,6 @@ public class EventHandler {
 			return onCPU;
 		}
 	}
-	
-//	public CPUProcess loadCPU(Queue<Job> readyQ1, Queue<Job> readyQ2, int time, CPUProcess off) {
-//		CPUProcess on;
-//		if(readyQ1.size() > 0) {
-//			//put a process on the CPU
-//			on = new CPUProcess(readyQ1.poll(), 100, time);
-//			System.out.print("[readyQ1] --> [Job " + on.getJob().getId() 
-//							+ "(r: " + on.getJob().getBurstTimeLeft()
-//							+ ", q: " + on.getQuantum() + ")] --> ");
-//		} else if(readyQ2.size() > 0) {
-//			on = new CPUProcess(readyQ2.poll(), 300, time);
-//			System.out.print("[readyQ2] --> [Job " + on.getJob().getId()
-//					+ "(r: " + on.getJob().getBurstTimeLeft()
-//					+ ", q: " + on.getQuantum() + ")] --> ");
-//		} else {
-//			on = null;
-//		}
-//		System.out.print("[CPU]");
-//		
-//		if(off != null) {
-//			System.out.print(" --> [Job " + off.getJob().getId() + "] --> ");
-//			if(off.getJob().getBurstTimeLeft() == 0) {
-//				System.out.println("[Finished List]");
-//			} else {
-//				System.out.println("[readyQ2]");
-//			}
-//		} else {
-//			System.out.println();
-//		}
-//		System.out.println();
-//		return on;
-//	}
 
 	public void handleEventEndSim(int systemTime, List<Job> finishedJobs, int usedMemory, int MAX_MEMORY) {
 		System.out.println();
@@ -225,7 +195,6 @@ public class EventHandler {
 		System.out.println("The CPU  Start Time  CPU burst time left");
 		System.out.println("-------  ----------  -------------------\n");
 		if(onCPU != null) {
-//			int time = (onCPU.getQuantum() < onCPU.getJob().getRemainingTime()) ? onCPU.getQuantum() : onCPU.getJob().getRemainingTime(); 
 			System.out.printf("%7s  %10s  %19s\n\n\n", onCPU.getJob().getId(), onCPU.getJob().getStartTime(), onCPU.getJob().getBurstTimeLeft());
 		} else {
 			System.out.println("The CPU is idle.\n\n");

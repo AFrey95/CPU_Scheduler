@@ -1,3 +1,22 @@
+/*******************************************************************************
+/
+/      filename:  com.model.CPUProcess.java
+/
+/   description:  This file contains the definition of an object which represents
+  				  a process on the CPU.
+/				 
+/        author:  Frey, Andrew
+/      login id:  FA_17_CPS356_26
+/
+/         class:  CPS 356
+/    instructor:  Perugini
+/    assignment:  Midterm Project
+/
+/      assigned:  October 12, 2017
+/           due:  October 27, 2017
+/
+******************************************************************************/
+
 package com.model;
 
 public class CPUProcess {

@@ -1,3 +1,24 @@
+/*******************************************************************************
+/
+/      filename:  com.Scheduler.java
+/
+/   description:  Contains the main method for CPU_Scheduler. This program
+/				  simulates job scheduling in a operating system. Handled system
+/				  events include (T)ermination, quantum (E)xpiration, I/O
+/				  (C)omplete, job (A)rrival, (I)/O requested, and (D)isplay. 
+/				 
+/        author:  Frey, Andrew
+/      login id:  FA_17_CPS356_26
+/
+/         class:  CPS 356
+/    instructor:  Perugini
+/    assignment:  Midterm Project
+/
+/      assigned:  October 12, 2017
+/           due:  October 27, 2017
+/
+******************************************************************************/
+
 package com;
 
 import java.util.ArrayList;

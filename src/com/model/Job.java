@@ -1,3 +1,21 @@
+/*******************************************************************************
+/
+/      filename:  com.model.Job.java
+/
+/   description:  Contains a definition of an object which represents a Job in
+/				  the system. 
+/				 
+/        author:  Frey, Andrew
+/      login id:  FA_17_CPS356_26
+/
+/         class:  CPS 356
+/    instructor:  Perugini
+/    assignment:  Midterm Project
+/
+/      assigned:  October 12, 2017
+/           due:  October 27, 2017
+/
+******************************************************************************/
 package com.model;
 
 public class Job {
@@ -19,14 +37,6 @@ public class Job {
 	public Job() {}
 	
 	public Job(int arrivalTime, int id, int memory, int runtime) {
-//		this.id = id;
-//		this.arrivalTime = arrivalTime;
-//		this.memory = memory;
-//		this.runtime = runtime;
-//		this.startTime = -1;
-//		this.comTime = 0;
-//		this.burstTimeLeft = runtime;
-//		this.ioBurstTime = 0;
 		this.id = id;
 		this.arrivalTime = arrivalTime;
 		this.memory = memory;
